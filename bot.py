@@ -6,9 +6,20 @@ from binance.spot import Spot as Client
 spot_client = Client(base_url="https://api3.binance.com")
 depth_dict = spot_client.depth("ETHUSDT", limit=10)
 
+dbids = []
+dasks = []
+
 for bid in depth_dict['bids']:
     bid.append(float(bid[0])*float(bid[1]))
-    print(bid)
+    if bid[2]>10000:
+        dbids.append(bid)
+print(f"bids {dbids}")
+
+for ask in depth_dict['asks']:
+    ask.append(float(ask[0])*float(ask[1]))
+    if ask[2]>10000:
+        dasks.append(ask)
+print(f"asks {dasks}")
 
 # df_list = []
 # for side in ["bids", "asks"]:
