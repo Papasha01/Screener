@@ -7,7 +7,8 @@ spot_client = Client(base_url="https://api3.binance.com")
 depth_dict = spot_client.depth("ETHUSDT", limit=10)
 
 for bid in depth_dict['bids']:
-    print(type(bid))
+    bid.append(float(bid[0])*float(bid[1]))
+    print(bid)
 
 # df_list = []
 # for side in ["bids", "asks"]:
