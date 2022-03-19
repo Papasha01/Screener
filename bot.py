@@ -3,23 +3,28 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from binance.spot import Spot as Client
 
-spot_client = Client(base_url="https://api3.binance.com")
-depth_dict = spot_client.depth("ETHUSDT", limit=10)
+listCoin = open('listCoin')
+print(listCoin.readline())
 
-dbids = []
-dasks = []
+# spot_client = Client(base_url="https://api3.binance.com")
+# depth_dict = spot_client.depth("ETHUSDT", limit=10000)
 
-for bid in depth_dict['bids']:
-    bid.append(float(bid[0])*float(bid[1]))
-    if bid[2]>10000:
-        dbids.append(bid)
-print(f"bids {dbids}")
+# dBids = []
+# dAsks = []
+# price = 500000
 
-for ask in depth_dict['asks']:
-    ask.append(float(ask[0])*float(ask[1]))
-    if ask[2]>10000:
-        dasks.append(ask)
-print(f"asks {dasks}")
+# for bid in depth_dict['bids']:
+#     bid.append(float(bid[0])*float(bid[1]))
+#     if bid[2]>price:
+#         dBids.append(bid)
+# print(f"BIDS: {dBids}")
+
+# for ask in depth_dict['asks']:
+#     ask.append(float(ask[0])*float(ask[1]))
+#     if ask[2]>price:
+#         dAsks.append(ask)
+# print(f"ASKS: {dAsks}")
+
 
 # df_list = []
 # for side in ["bids", "asks"]:
@@ -28,7 +33,6 @@ print(f"asks {dasks}")
 #     df_list.append(df)
 
 # df = pd.concat(df_list).reset_index(drop=True)
-
 
 # # График
 # fig, ax = plt.subplots()
