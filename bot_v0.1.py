@@ -8,11 +8,11 @@ listCoin = open('listCoin')
 for row in listCoin:
 
     spot_client = Client(base_url="https://api3.binance.com")
-    depth_dict = spot_client.depth("1INCHUSDT", limit=10000)
+    depth_dict = spot_client.depth('BTCUSDT', limit=1000)
 
     dBids = []
     dAsks = []
-    price = 500000
+    price = 10000
 
     for bid in depth_dict['bids']:
         bid.append(float(bid[0])*float(bid[1]))
