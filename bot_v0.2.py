@@ -2,7 +2,7 @@ import websocket
 import json
 
 cc = 'btcusdt'
-socket = f'wss://stream.binance.com:9443/ws/{cc}@depth20'
+socket = f'wss://stream.binance.com:9443/ws/{cc}@depth20@100ms'
 
 def on_message(ws, message):
     obj = json.loads(message)
