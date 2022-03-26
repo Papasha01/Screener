@@ -1,19 +1,19 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 from binance.spot import Spot as Client
 
 listCoin = open('listCoin')
 
 for row in listCoin:
+    print(row.rstrip())
 
     spot_client = Client(base_url="https://api3.binance.com")
-    depth_dict = spot_client.depth('BTCUSDT', limit=1000)
+    #depth_dict = spot_client.depth(row.rstrip(), limit=150)
+    coin_info = spot_client.coin_info(recvWindow = 30000)
+    print(coin_info)
 
     dBids = []
     dAsks = []
-    price = 10000
-
+    price = 300000
+    
     for bid in depth_dict['bids']:
         bid.append(float(bid[0])*float(bid[1]))
         if bid[2]>price:
