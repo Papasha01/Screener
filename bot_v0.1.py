@@ -1,28 +1,28 @@
 from binance.spot import Spot as Client
-
+from datetime import date, datetime
 listCoin = open('listCoin.txt')
 
+dict1 = {}
+dict2 = {}
+limitRange = 150
+
 for row in listCoin:
-    print(row.rstrip())
-
     spot_client = Client(base_url="https://api3.binance.com")
-    depth_dict = spot_client.depth(row.rstrip(), limit=150)
+    depth_dict = spot_client.depth(row.rstrip(), limit=limitRange)
+    del depth_dict["lastUpdateId"]
 
-    listBids = []
-    listAsks = []
-    price = 500000
+    print(row.rstrip())
+    listValue = []
+    price = 100000
     
-    for bid in depth_dict['bids']:
-        bid.append(float(bid[0])*float(bid[1]))
-        if bid[2]>price:
-            listBids.append(bid)
-    print(f"BIDS: {listBids}")
-
-    for ask in depth_dict['asks']:
-        ask.append(float(ask[0])*float(ask[1]))
-        if ask[2]>price:
-            listAsks.append(ask)
-    print(f"ASKS: {listAsks}")
+    for value in depth_dict.values():
+        for i in value:
+            if (float(i[0])*float(i[1]))>price:
+                listValue.append(i)
+                ###Здесь словарь должен заполняться данными### 
 
 
+    print(f"value: {listValue}")
+
+print(f"\n{dict1}")
 print("COMPLITE!")
