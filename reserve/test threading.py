@@ -1,16 +1,15 @@
 from threading import Thread
+import threading
 import time
 
 def delayed1():
     time.sleep(5)
-    print("Вывод через 5 секунд!")
+    print("Вывод через 10 секунд!")
     
-
-def delayed2():
-    print("ВЫВОД")
-
-
 th = Thread(target=delayed1)
-th2 = Thread(target=delayed2)
 th.start()
-th2.start()
+
+while True:
+    for thread in threading.enumerate():
+        time.sleep(1)
+        print("Имя потока %s." % thread.getName())

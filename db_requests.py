@@ -6,7 +6,7 @@ def select_get_quantity(namecoin, price):
         cursor = sqlite_connection.cursor()
 
         sql_select_query = """select * from data where coinname = ? and price = ?"""
-        cursor.execute(sql_select_query, (namecoin, price))
+        cursor.execute(sql_select_query, (namecoin, price, ))
         records = cursor.fetchall()
         cursor.close()
 
@@ -23,18 +23,18 @@ def select_get_quantity(namecoin, price):
         if sqlite_connection:
             sqlite_connection.close()
             
-def select_get_an_approved_entry(dt):
+def select_get_an_approved_entry(datetime_):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
-
-        sql_select_query = """select * from data where datetime < ?"""
-        cursor.execute(sql_select_query, (str(dt)))
+        print(str(datetime_))
+        sql_select_query = """SELECT * from data where datetime < ?"""
+        cursor.execute(sql_select_query, (str(datetime_),))
         records = cursor.fetchall()
         cursor.close()
 
         if len(records) > 0:
-            return(records[0][3])
+            return(records)
         else:
             return(False)
 
@@ -72,8 +72,8 @@ def update_sqlite_table(coinname, price, count, time):
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set count = ?, datetime= ? where coinname = ? and price = ?"""
-        data = (count, time, coinname, price)
-        cursor.execute(sql_update_query, data)
+        data_tuple = (count, time, coinname, price)
+        cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
         print(f"Update: {coinname, price, count, time}")
         cursor.close()
@@ -90,7 +90,7 @@ def delete_sqlite_record(coinname, price):
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """DELETE from data where coinname = ? and price = ?"""
-        cursor.execute(sql_update_query, (coinname, price))
+        cursor.execute(sql_update_query, (coinname, price, ))
         sqlite_connection.commit()
         print(f"Delete: {coinname, price}")
         cursor.close()
@@ -100,7 +100,6 @@ def delete_sqlite_record(coinname, price):
     finally:
         if sqlite_connection:
             sqlite_connection.close()
-            
 
 # update_sqlite_table('ADAUSDT', 1.195, 229787.7, str(datetime.now()))
 #insert_into_table('btcusdt', 43000.56546545, 100.65465, str(datetime.now()))
