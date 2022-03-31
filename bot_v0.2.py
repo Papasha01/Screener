@@ -31,7 +31,6 @@ def checking_for_a_diff():
                 jsMessage = json.loads(oldest_data_from_stream_buffer)
                 if 'stream' in jsMessage.keys():
                     print(jsMessage)
-                    logging.error(jsMessage)
                     for bid in jsMessage['data']['b']:
                         check(bid)
                     for ask in jsMessage['data']['a']:
