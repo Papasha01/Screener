@@ -14,5 +14,3 @@ th = Thread(target=delayed1)
 th2 = Thread(target=delayed2)
 th.start()
 th2.start()
-
-
