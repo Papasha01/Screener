@@ -1,34 +1,72 @@
+from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
 import json
 import logging
+from threading import Thread
+import threading
+import time
 from datetime import datetime, timedelta
-from DB import select_info, delete_sqlite_record, insert_into_table, update_sqlite_table
-
-# add filemode="w" to overwrite
-logging.basicConfig(filename="sample.log", level=logging.INFO)
-
-
-
-
+from db_requests import select_info, delete_sqlite_record, insert_into_table, update_sqlite_table
 
 ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-ubwa.create_stream(['depth'], ['btcusdt', 'ethusdt', 'dogeusdt', 'bnbusdt', 'ADAUSDT', 'AAVEUSDT'])
+logging.basicConfig(filename="simple.log", level=logging.INFO)
+delta = timedelta(seconds=5)
+limit = 100000
+listCoin = []
+jsMessage = json
 
-while True:
-    oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
-    if oldest_data_from_stream_buffer:
-        jsMessage = json.loads(oldest_data_from_stream_buffer)
-        if 'stream' in jsMessage.keys():
-            for bid in jsMessage['data']['b']:
-                if select_info(jsMessage['data']['s'], bid[0]) != NULL:
-                    insert_into_table(jsMessage['data']['s'], bid[0], bid[1], str(datetime.now()))
-                else:update_sqlite_table(jsMessage['data']['s'], bid[0], bid[1], str(datetime.now()))
-            for ask in jsMessage['data']['a']:
-                if select_info(jsMessage['data']['s'], ask[0]) != NULL:
-                    insert_into_table(jsMessage['data']['s'], ask[0], ask[1], str(datetime.now()))
-                else:update_sqlite_table(jsMessage['data']['s'], ask[0], bid[1], str(datetime.now()))
-                        
-            print()
-            print(jsMessage['data']['b'])
-        
+def checking_for_a_diff():
+    def get_data(ba):
+        if float(ba[0])*float(ba[1])>limit: 
+            record = select_info(jsMessage['data']['s'], ba[0])
+            if not record:
+                insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
+            elif float(record) * 0.9 < float(ba[1]): 
+                update_sqlite_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
+            else: delete_sqlite_record(jsMessage['data']['s'], ba[0])
+
+    while True:
+            oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
+            if oldest_data_from_stream_buffer:
+                jsMessage = json.loads(oldest_data_from_stream_buffer)
+                if 'stream' in jsMessage.keys():
+                    for bid in jsMessage['data']['b']:
+                        get_data(bid)
+
+                    for ask in jsMessage['data']['a']:
+                        get_data(ask)
+
+def get_first_data():
+    coins = open('coins.txt')
+    for row in coins:
+        spot_client = Client(base_url="https://api1.binance.com")
+        depth_dict = spot_client.depth(row.rstrip(), limit=150)
+        del depth_dict["lastUpdateId"]
+        listCoin.append(row.rstrip())
+        print(f'Check: {row.rstrip()}')
+        time.sleep(15)
+
+        for ba in depth_dict.values():
+            for i in ba:
+                if (float(i[0])*float(i[1]))>limit and select_info(row.rstrip(), i[0]) == False:
+                    insert_into_table(row.rstrip(), i[0], i[1], str(datetime.now()))
+                else: update_sqlite_table(row.rstrip(), i[0], i[1], str(datetime.now()))
+    ubwa.create_stream(['depth'], listCoin)
+    coins.close()
+
+
+def send_notification():
+    while True:
+        print('hello!')
+    
+get_first_data()
+
+th1 = Thread(target=checking_for_a_diff)
+th2 = Thread(target=send_notification)
+th1.start()
+th2.start()
+
+
+# Привязка дела к телеграму
+# Кнопки в телеграме

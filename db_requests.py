@@ -10,15 +10,12 @@ def select_info(namecoin, price):
         sql_select_query = """select * from Data where coinname = ? and price = ?"""
         cursor.execute(sql_select_query, (namecoin, price))
         records = cursor.fetchall()
-        ls = []
-        if len(records) > 0:
-            for row in records:
-                return(row[3])
-                
-        else:
-            print('\nno records\n')
-
         cursor.close()
+
+        if len(records) > 0:
+            return(records[0][3])
+        else:
+            return(False)
 
     except sqlite3.Error as error:
         print("Ошибка при работе с SQLite", error)
@@ -71,14 +68,14 @@ def update_sqlite_table(coinname, price, count, time):
             print("Соединение с SQLite закрыто")
 
 
-def delete_sqlite_record(dev_id):
+def delete_sqlite_record(coinname, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         print("Подключен к SQLite")
 
-        sql_update_query = """DELETE from Data where id = ?"""
-        cursor.execute(sql_update_query, (dev_id, ))
+        sql_update_query = """DELETE from Data where coinname = ? and price = ?"""
+        cursor.execute(sql_update_query, (coinname, price))
         sqlite_connection.commit()
         print("Запись успешно удалена")
         cursor.close()
@@ -93,6 +90,6 @@ def delete_sqlite_record(dev_id):
 
 
 # update_sqlite_table('ADAUSDT', 1.195, 229787.7, str(datetime.now()))
-# insert_into_table('btcusdt', 43000.56546545, 100.65465, str(datetime.now()))
+#insert_into_table('btcusdt', 43000.56546545, 100.65465, str(datetime.now()))
 # print(f"Объем заявки: {select_info('btcusdt', 43000.56546545)}")
 # delete_sqlite_record(5)
