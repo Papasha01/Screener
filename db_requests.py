@@ -2,7 +2,7 @@ import sqlite3
 
 
 
-def select_get_quantity(namecoin, price):
+def select_records(namecoin, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
@@ -17,6 +17,29 @@ def select_get_quantity(namecoin, price):
             return(records[0])
         else:
             #print(f'SelectNO {namecoin, price}')
+            return(False)
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def select_all_records():
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sql_select_query = """select * from data"""
+        cursor.execute(sql_select_query)
+        records = cursor.fetchall()
+        cursor.close()
+
+        if len(records) > 0:
+            #print(f'SelectYES')
+            return(records[0])
+        else:
+            #print(f'SelectNO')
             return(False)
 
     except sqlite3.Error as error:

@@ -1,10 +1,10 @@
-#!c:\users\sss\desktop\screener\.venv\scripts\python.exe
-# EASY-INSTALL-ENTRY-SCRIPT: 'autobahn==22.2.2','console_scripts','wamp'
+#!C:\Users\SSS\Desktop\Screener\.venv\Scripts\python.exe
+# EASY-INSTALL-ENTRY-SCRIPT: 'autobahn==22.3.2','console_scripts','wamp'
 import re
 import sys
 
 # for compatibility with easy_install; see #2198
-__requires__ = 'autobahn==22.2.2'
+__requires__ = 'autobahn==22.3.2'
 
 try:
     from importlib.metadata import distribution
@@ -30,4 +30,4 @@ globals().setdefault('load_entry_point', importlib_load_entry_point)
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(load_entry_point('autobahn==22.2.2', 'console_scripts', 'wamp')())
+    sys.exit(load_entry_point('autobahn==22.3.2', 'console_scripts', 'wamp')())

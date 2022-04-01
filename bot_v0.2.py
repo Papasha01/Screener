@@ -1,5 +1,5 @@
 from select import select
-from db_requests import delete_all_data, select_all_user_id, select_get_quantity, delete_sqlite_record, insert_into_table, update_sqlite_table, select_get_an_approved_entry, insert_user_id, select_user_id
+from db_requests import delete_all_data, select_all_records, select_all_user_id, select_records, delete_sqlite_record, insert_into_table, update_sqlite_table, select_get_an_approved_entry, insert_user_id, select_user_id
 from datetime import datetime, timedelta
 from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
@@ -61,7 +61,7 @@ def get_first_data():
         for ba in depth_dict.values():
             for i in ba:
                 if (float(i[0])*float(i[1]))>limit:
-                    if not select_get_quantity(row, i[0]):                             # Если нет записи
+                    if not select_records(row, i[0]):                             # Если нет записи
                         insert_into_table(row, i[0], i[1], str(datetime.now()))        # Создание записи
                     else: update_sqlite_table(row, i[0], i[1], str(datetime.now())),   # Обновление записи
     bar.finish()
@@ -70,7 +70,7 @@ def get_first_data():
 # Получение и проверка с sql получаемых записей
 def checking_for_a_diff():
     def check(ba):
-        record = select_get_quantity(jsMessage['data']['s'], ba[0])
+        record = select_records(jsMessage['data']['s'], ba[0])
         if float(ba[0])*float(ba[1])>limit:                                                         # Если цена * кол-во > limit
             if not record:                                                                          # Если записи нет            
                 insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))        # Создание записи
@@ -86,6 +86,8 @@ def checking_for_a_diff():
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
             if 'stream' in jsMessage.keys():
+
+
                 # print(jsMessage)
                 for bid in jsMessage['data']['b']:
                     check(bid)
@@ -101,15 +103,20 @@ def check_old_data():
         records = select_get_an_approved_entry(datetime.now() - delta)
         if records:
             for record in records:
-                spot_client = Client(base_url="https://api1.binance.com")
-                percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
-                if  percentage_to_density <= cf_distance:
-                    print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\nDate of discovery: {record[4]}')
-                    send_telegram(record, percentage_to_density)
-                    sound.play()
-                    delete_sqlite_record(record[1], record[2])
-                    
+                try:
+                    spot_client = Client(base_url="https://api1.binance.com")
+                    percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
+                    if  percentage_to_density <= cf_distance:
+                        print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\nDate of discovery: {record[4]}')
+                        send_telegram(record, percentage_to_density)
+                        sound.play()
+                        delete_sqlite_record(record[1], record[2])
+                except Exception as e:
+                    print(e)
+                    time.sleep(3)
+                    check_old_data()
 
+                   
 # Работа с ботом
 token = '5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8'
 bot=telebot.TeleBot(token)
@@ -123,9 +130,19 @@ bot=telebot.TeleBot(token)
 #             pass
 #     print("Break infinity polling")
 
+
 # Запуск цикла Telebot
 def polling():
-    bot.polling(none_stop=True, interval=0)
+    time.sleep(5)
+    try: 
+        bot.polling(none_stop=True) 
+    except Exception as e: 
+        print(e)
+        time.sleep(5)
+        polling()
+
+
+
 
 # Запись id user в бд
 @bot.message_handler(commands=['start'])
@@ -155,7 +172,7 @@ def spin():
 print ("Do you want to delete all the data? y/n")
 solution = input()
 if solution == 'y' or solution == 'Y':
-    if select_all_user_id():
+    if select_all_records():
         delete_all_data()
 
 print ("Do you want to initialize coins? y/n")
