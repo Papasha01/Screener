@@ -7,29 +7,37 @@ import unicorn_binance_websocket_api
 from progress.spinner import Spinner 
 from progress.bar import Bar
 from threading import Thread
+from pygame import mixer
 import json
 import time
 import telebot
+import configparser
 
-from pygame import mixer
+# Импорт cfg
+config = configparser.ConfigParser()    # создаём объекта парсера
+config.read("settings.ini")             # читаем конфиг
+config["Settings"]["time"]
+delta = timedelta(minutes = float(config["Settings"]["time"].strip ('"')))
+limit = float(config["Settings"]["limit"].strip ('"'))
+cf_update = float(config["Settings"]["cf_update"].strip ('"'))
+cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
+
+# Звук оповещения
 mixer.init() 
 sound=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
-
 ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
 
+# Парсинг файла с монетами в массив
 listCoin = []
 coins = open('coins.txt')
 for row in coins: listCoin.append(row.rstrip())
 coins.close()
 
+# Progress bar
 bar = Bar('Importing Coins', max = len(listCoin))
 spinner = Spinner('Loading ')
 ubwa.create_stream(['depth'], listCoin)
 
-delta = timedelta(seconds=30)
-limit = 300000
-cf_update = 0.9
-cf_distance = 0.1
 
 # Первое получение данных
 def get_first_data():
@@ -73,11 +81,6 @@ def checking_for_a_diff():
                 for ask in jsMessage['data']['a']:
                     check(ask)
 
-def spin():
-    while True:
-        time.sleep(0.2)
-        spinner.next()
-
 # Отправка уведомлений, удаление старых записей
 def check_old_data():
     while True:
@@ -113,12 +116,15 @@ def send_telegram(record, percentage_to_density):
         bot.send_message(user_id.rstrip(), f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmounts in $: {float(record[2]) * float(record[3])}\nPercentage to density: {percentage_to_density*100}')
     f.close()
 
-
+# Значек работы программы
+def spin():
+    while True:
+        time.sleep(0.2)
+        spinner.next()
+        
+# Вызовы основных функций
 get_first_data()
 th1 = Thread(target=checking_for_a_diff).start()
 th2 = Thread(target=check_old_data).start()
 th3 = Thread(target=bot_polling).start()
 spin()
-
-# автоперезагрузка
-# файл cfg
