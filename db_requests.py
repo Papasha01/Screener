@@ -43,7 +43,49 @@ def select_get_an_approved_entry(datetime_):
     finally:
         if sqlite_connection:
             sqlite_connection.close()
-            
+
+def select_user_id(user_id):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+        # print(str(datetime_))
+        sql_select_query = """SELECT * from user_ids where id == ?"""
+        cursor.execute(sql_select_query, (user_id,))
+        records = cursor.fetchall()
+        cursor.close()
+
+        if len(records) > 0:
+            return(records)
+        else:
+            return(False)
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def select_all_user_id():
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+        # print(str(datetime_))
+        sql_select_query = """SELECT * from user_ids"""
+        cursor.execute(sql_select_query)
+        records = cursor.fetchall()
+        cursor.close()
+
+        if len(records) > 0:
+            return(records)
+        else:
+            return(False)
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
 def insert_into_table(coinname, price, count, time):
 
     try:
@@ -58,6 +100,24 @@ def insert_into_table(coinname, price, count, time):
         cursor.execute(sqlite_insert_with_param, data_tuple)
         sqlite_connection.commit()
         # print(f"Insert: {coinname, price, count, time}")
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def insert_user_id(user_id):
+
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sqlite_insert_with_param = """INSERT INTO user_ids VALUES (?);"""
+        cursor.execute(sqlite_insert_with_param, (user_id, ))
+        sqlite_connection.commit()
+        # print(f"Insert: {user_id}")
         cursor.close()
 
     except sqlite3.Error as error:
