@@ -26,7 +26,7 @@ bar = Bar('Importing Coins', max = len(listCoin))
 spinner = Spinner('Loading ')
 ubwa.create_stream(['depth'], listCoin)
 
-delta = timedelta(seconds=60)
+delta = timedelta(seconds=30)
 limit = 300000
 cf_update = 0.9
 cf_distance = 0.1
@@ -78,19 +78,6 @@ def spin():
         time.sleep(0.2)
         spinner.next()
 
-bot=telebot.TeleBot('5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8')
-@bot.message_handler(commands=['start'])
-
-def start_handler(message):
-    bot.send_message(message.chat.id, 'I am working!')
-    f = open('all_chat_id.txt','r+')
-    f.write('string')
-    f.close()
-
-def bot_polling():
-    bot.polling()
-
-
 # Отправка уведомлений, удаление старых записей
 def check_old_data():
     while True:
@@ -103,12 +90,35 @@ def check_old_data():
                 percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
                 if  percentage_to_density <= cf_distance:
                     print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmounts in $: {float(record[2]) * float(record[3])}\nPercentage to density: {percentage_to_density*100}')
+                    send_telegram(record, percentage_to_density)
                     sound.play()
                     delete_sqlite_record(record[1], record[2])
 
-get_first_data()
+# Работа с ботом
+token = '5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8'
+bot=telebot.TeleBot(token)
+def bot_polling():
+    bot.polling(none_stop=True)
+@bot.message_handler(commands=['start'])
 
+def start_handler(message):
+    bot.send_message(message.chat.id, "Let's go")
+    f = open('user_ids.txt','r+')
+    f.write(str(message.chat.id))
+    f.close()
+
+def send_telegram(record, percentage_to_density):
+    f = open('user_ids.txt','r')
+    for user_id in f:
+        bot.send_message(user_id.rstrip(), f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmounts in $: {float(record[2]) * float(record[3])}\nPercentage to density: {percentage_to_density*100}')
+    f.close()
+
+
+get_first_data()
 th1 = Thread(target=checking_for_a_diff).start()
 th2 = Thread(target=check_old_data).start()
 th3 = Thread(target=bot_polling).start()
 spin()
+
+# автоперезагрузка
+# файл cfg
