@@ -1,22 +1,19 @@
+from datetime import datetime
 import sqlite3
 
-
-
-def select_records(namecoin, price):
+def select_record(namecoin, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_select_query = """select * from data where coinname = ? and price = ?"""
+        sql_select_query = """select * from data where coin_name = ? and price = ?"""
         cursor.execute(sql_select_query, (namecoin, price, ))
         records = cursor.fetchall()
         cursor.close()
 
         if len(records) > 0:
-            #print(f'SelectYES {namecoin, price}')
             return(records[0])
         else:
-            #print(f'SelectNO {namecoin, price}')
             return(False)
 
     except sqlite3.Error as error:
@@ -36,10 +33,8 @@ def select_all_records():
         cursor.close()
 
         if len(records) > 0:
-            #print(f'SelectYES')
             return(records[0])
         else:
-            #print(f'SelectNO')
             return(False)
 
     except sqlite3.Error as error:
@@ -48,13 +43,12 @@ def select_all_records():
         if sqlite_connection:
             sqlite_connection.close()
             
-def select_get_an_approved_entry(datetime_):
+def select_get_an_accepted_records(dt):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
-        # print(str(datetime_))
-        sql_select_query = """SELECT * from data where datetime < ?"""
-        cursor.execute(sql_select_query, (str(datetime_),))
+        sql_select_query = """SELECT * from data where dt < ?"""
+        cursor.execute(sql_select_query, (str(dt),))
         records = cursor.fetchall()
         cursor.close()
 
@@ -73,7 +67,6 @@ def select_user_id(user_id):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
-        # print(str(datetime_))
         sql_select_query = """SELECT * from user_ids where id == ?"""
         cursor.execute(sql_select_query, (user_id,))
         records = cursor.fetchall()
@@ -94,7 +87,6 @@ def select_all_user_id():
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
-        # print(str(datetime_))
         sql_select_query = """SELECT * from user_ids"""
         cursor.execute(sql_select_query)
         records = cursor.fetchall()
@@ -111,20 +103,18 @@ def select_all_user_id():
         if sqlite_connection:
             sqlite_connection.close()
 
-def insert_into_table(coinname, price, count, time):
+def insert_into_table(coin_name, price, count, dt):
 
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-
         sqlite_insert_with_param = """INSERT INTO data
-                            (coinname, price, count, datetime)
+                            (coin_name, price, count, dt)
                             VALUES (?, ?, ?, ?);"""
-        data_tuple = (coinname, price, count, time)
+        data_tuple = (coin_name, price, count, dt)
         cursor.execute(sqlite_insert_with_param, data_tuple)
         sqlite_connection.commit()
-        # print(f"Insert: {coinname, price, count, time}")
         cursor.close()
 
     except sqlite3.Error as error:
@@ -142,7 +132,6 @@ def insert_user_id(user_id):
         sqlite_insert_with_param = """INSERT INTO user_ids VALUES (?);"""
         cursor.execute(sqlite_insert_with_param, (user_id, ))
         sqlite_connection.commit()
-        # print(f"Insert: {user_id}")
         cursor.close()
 
     except sqlite3.Error as error:
@@ -151,16 +140,48 @@ def insert_user_id(user_id):
         if sqlite_connection:
             sqlite_connection.close()
             
-def update_sqlite_table(coinname, price, count, time):
+def update_record(coin_name, price, count, dt):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """Update data set count = ?, datetime= ? where coinname = ? and price = ?"""
-        data_tuple = (count, time, coinname, price)
+        sql_update_query = """Update data set count = ?, dt= ? where coin_name = ? and price = ?"""
+        data_tuple = (count, dt, coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
-        #print(f"Update: {coinname, price, count, time}")
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def update_out_from_range (coin_name, price, dt):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sql_update_query = """Update data set dt_out = ? where coin_name = ? and price = ?"""
+        data_tuple = (dt, coin_name, price)
+        cursor.execute(sql_update_query, data_tuple)
+        sqlite_connection.commit()
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+def update_enter_range (coin_name, price):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sql_update_query = """Update data set dt_out = '1999-01-01 00:00:00.000000' where coin_name = ? and price = ?"""
+        data_tuple = (coin_name, price)
+        cursor.execute(sql_update_query, data_tuple)
+        sqlite_connection.commit()
         cursor.close()
 
     except sqlite3.Error as error:
@@ -169,15 +190,13 @@ def update_sqlite_table(coinname, price, count, time):
         if sqlite_connection:
             sqlite_connection.close()
             
-def delete_sqlite_record(coinname, price):
+def delete_sqlite_record(coin_name, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
-
-        sql_update_query = """DELETE from data where coinname = ? and price = ?"""
-        cursor.execute(sql_update_query, (coinname, price, ))
+        sql_update_query = """DELETE from data where coin_name = ? and price = ?"""
+        cursor.execute(sql_update_query, (coin_name, price, ))
         sqlite_connection.commit()
-        # print(f"Delete: {coinname, price}")
         cursor.close()
 
     except sqlite3.Error as error:
@@ -191,10 +210,11 @@ def delete_all_data():
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """DELETE from data """
-        cursor.execute(sql_update_query)
+        sql_update_query1 = """DELETE from data"""
+        sql_update_query2 = """DELETE from sqlite_sequence"""
+        cursor.execute(sql_update_query1)
+        cursor.execute(sql_update_query2)
         sqlite_connection.commit()
-        # print(f"Delete: data")
         cursor.close()
 
     except sqlite3.Error as error:
@@ -203,9 +223,8 @@ def delete_all_data():
         if sqlite_connection:
             sqlite_connection.close()
 
-# update_sqlite_table('ADAUSDT', 1.195, 229787.7, str(datetime.now()))
-#insert_into_table('btcusdt', 43000.56546545, 100.65465, str(datetime.now()))
-# print(f"Объем заявки: {select_info('btcusdt', 43000.56546545)}")
-# delete_sqlite_record(5)
-# select_get_an_approved_entry(datetime(2023,1,1))
-
+# from datetime import datetime
+# update_record('AXSUSDT', 65.63, 999, str(datetime.now()))
+# delete_all_data()
+# update_enter_range('AXSUSDT', 65.63)
+# update_out_from_range('AXSUSDT', 65.63, str(datetime.now()))

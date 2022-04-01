@@ -1,6 +1,5 @@
-from select import select
-from db_requests import delete_all_data, select_all_records, select_all_user_id, select_records, delete_sqlite_record, insert_into_table, update_sqlite_table, select_get_an_approved_entry, insert_user_id, select_user_id
-from datetime import datetime, timedelta
+from db_requests import delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_into_table, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
+from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
@@ -18,13 +17,16 @@ config = configparser.ConfigParser()    # создаём объекта парс
 config.read("cfg.ini")                  # читаем конфиг
 config["Settings"]["time"]
 delta = timedelta(minutes = float(config["Settings"]["time"].strip ('"')))
+time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
 limit = float(config["Settings"]["limit"].strip ('"'))
 cf_update = float(config["Settings"]["cf_update"].strip ('"'))
 cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
 
 # Звук оповещения
 mixer.init() 
-sound=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
+sound_notification=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
+sound_error_polling=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_sicko_mode.mp3")
+sound_error=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_CDOxCYm.mp3")
 ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
 
 # Парсинг файла с монетами в массив
@@ -61,23 +63,23 @@ def get_first_data():
         for ba in depth_dict.values():
             for i in ba:
                 if (float(i[0])*float(i[1]))>limit:
-                    if not select_records(row, i[0]):                             # Если нет записи
-                        insert_into_table(row, i[0], i[1], str(datetime.now()))        # Создание записи
-                    else: update_sqlite_table(row, i[0], i[1], str(datetime.now())),   # Обновление записи
+                    if not select_record(row, i[0]):                               # Если нет записи
+                        insert_into_table(row, i[0], i[1], str(datetime.now()))     # Создание записи
+                    else: update_record(row, i[0], i[1], str(datetime.now())),      # Обновление записи
     bar.finish()
     print('Import Complite')
 
 # Получение и проверка с sql получаемых записей
 def checking_for_a_diff():
     def check(ba):
-        record = select_records(jsMessage['data']['s'], ba[0])
+        record = select_record(jsMessage['data']['s'], ba[0])
         if float(ba[0])*float(ba[1])>limit:                                                         # Если цена * кол-во > limit
             if not record:                                                                          # Если записи нет            
                 insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))        # Создание записи
             elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
-                update_sqlite_table(jsMessage['data']['s'], ba[0], ba[1], record[4])                # Обновить цену и оставить дату
+                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                # Обновить цену и оставить дату
             else: 
-                update_sqlite_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))      # Выполнить обновление
+                update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))      # Выполнить обновление
         elif record:  
             delete_sqlite_record(jsMessage['data']['s'], ba[0])                                     #  Удаляет заявки 0.000000                                   
             
@@ -94,42 +96,34 @@ def checking_for_a_diff():
                 for ask in jsMessage['data']['a']:
                     check(ask)
 
-# Отправка уведомлений, удаление старых записей
+# Отправка уведомлений
 def check_old_data():
     while True:
-        time.sleep(2)
-        # (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
-        # {'symbol': 'DOGEUSDT', 'price': '0.13950000'}
-        records = select_get_an_approved_entry(datetime.now() - delta)
+        time.sleep(5)
+        # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
+        records = select_get_an_accepted_records(datetime.now() - delta)
         if records:
             for record in records:
                 try:
                     spot_client = Client(base_url="https://api1.binance.com")
                     percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
                     if  percentage_to_density <= cf_distance:
-                        print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\nDate of discovery: {record[4]}')
-                        send_telegram(record, percentage_to_density)
-                        sound.play()
-                        delete_sqlite_record(record[1], record[2])
+                        dt_resend = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
+                        if record[5] != '1999-01-01 00:00:00.000000' and datetime.now() - time_resend < dt_resend:
+                            update_enter_range(record[1], record[2])
+                            print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
+                            send_telegram(record, percentage_to_density)
+                            sound_notification.play()
+                    else: 
+                        update_out_from_range(record[1], record[2], str(datetime.now()))
                 except Exception as e:
                     print(e)
-                    time.sleep(3)
+                    sound_error.play()
                     check_old_data()
 
-                   
 # Работа с ботом
 token = '5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8'
 bot=telebot.TeleBot(token)
-
-# def infinity_polling(self, *args, **kwargs):
-#     while not self.__stop_polling.is_set():
-#         try:
-#             self.polling(*args, **kwargs)
-#         except Exception as e:
-#             time.sleep(5)
-#             pass
-#     print("Break infinity polling")
-
 
 # Запуск цикла Telebot
 def polling():
@@ -137,14 +131,10 @@ def polling():
     try: 
         bot.polling(none_stop=True) 
     except Exception as e: 
-        print(e)
-        time.sleep(5)
+        sound_error_polling.play()
         polling()
 
-
-
-
-# Запись id user в бд
+# Запись id user в бдn
 @bot.message_handler(commands=['start'])
 def start_handler(message):
     bot.send_message(message.chat.id, "I'm working!")
@@ -157,7 +147,7 @@ def send_telegram(record, percentage_to_density):
     if select_all_user_id():
         for user_id in select_all_user_id():
             try:
-                bot.send_message(user_id[0], f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\n\nDate of discovery: {record[4]}\n')
+                bot.send_message(user_id[0], f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\n\nDate of discovery: {record[4]}\n')
             except telebot.apihelper.ApiException as e:
                 if e.description == "Forbidden: bot was blocked by the user":
                     print(f"Attention please! The user {user_id[0]} has blocked the bot")
