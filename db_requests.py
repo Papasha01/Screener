@@ -1,5 +1,7 @@
 import sqlite3
 
+
+
 def select_get_quantity(namecoin, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
@@ -153,6 +155,23 @@ def delete_sqlite_record(coinname, price):
         cursor.execute(sql_update_query, (coinname, price, ))
         sqlite_connection.commit()
         # print(f"Delete: {coinname, price}")
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def delete_all_data():
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sql_update_query = """DELETE from data """
+        cursor.execute(sql_update_query)
+        sqlite_connection.commit()
+        # print(f"Delete: data")
         cursor.close()
 
     except sqlite3.Error as error:

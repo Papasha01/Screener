@@ -1,4 +1,5 @@
-from db_requests import select_all_user_id, select_get_quantity, delete_sqlite_record, insert_into_table, update_sqlite_table, select_get_an_approved_entry, insert_user_id, select_user_id
+from select import select
+from db_requests import delete_all_data, select_all_user_id, select_get_quantity, delete_sqlite_record, insert_into_table, update_sqlite_table, select_get_an_approved_entry, insert_user_id, select_user_id
 from datetime import datetime, timedelta
 from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
@@ -25,7 +26,6 @@ cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
 mixer.init() 
 sound=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
 ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-
 
 # Парсинг файла с монетами в массив
 listCoin = []
@@ -137,12 +137,13 @@ def start_handler(message):
 
 # Отправка уведомления в телеграм
 def send_telegram(record, percentage_to_density):
-    for user_id in select_all_user_id():
-        try:
-            bot.send_message(user_id[0], f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\n\nDate of discovery: {record[4]}\n')
-        except telebot.apihelper.ApiException as e:
-            if e.description == "Forbidden: bot was blocked by the user":
-                   print(f"Attention please! The user {user_id[0]} has blocked the bot")
+    if select_all_user_id():
+        for user_id in select_all_user_id():
+            try:
+                bot.send_message(user_id[0], f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {float(record[2]) * float(record[3])}$\nPercentage to density: {percentage_to_density*100}%\n\nDate of discovery: {record[4]}\n')
+            except telebot.apihelper.ApiException as e:
+                if e.description == "Forbidden: bot was blocked by the user":
+                    print(f"Attention please! The user {user_id[0]} has blocked the bot")
 
 # Значек работы программы
 def spin():
@@ -151,11 +152,18 @@ def spin():
         spinner.next()
 
 # Вызовы основных функций
-print ("Do you want to initialize coins?? y/n")
+print ("Do you want to delete all the data? y/n")
+solution = input()
+if solution == 'y' or solution == 'Y':
+    if select_all_user_id():
+        delete_all_data()
+
+print ("Do you want to initialize coins? y/n")
 solution = input()
 if solution == 'y' or solution == 'Y':
     get_first_data()
 
+# Запуск нескольких потоков
 th1 = Thread(target=checking_for_a_diff).start()
 th2 = Thread(target=check_old_data).start()
 th3 = Thread(target=polling).start()
