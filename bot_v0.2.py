@@ -7,10 +7,20 @@ from progress.spinner import Spinner
 from progress.bar import Bar
 from threading import Thread
 from pygame import mixer
+import configparser
+import logging
 import json
 import time
 import telebot
-import configparser
+
+logging.basicConfig(
+    level=logging.NOTSET,
+    filename = "simple.log",
+    #format = "%(asctime)s - %(module)s - %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
+    datefmt='%H:%M:%S',
+    )
+
+logging.info('Hello')
 
 # Импорт cfg
 config = configparser.ConfigParser()    # создаём объекта парсера
