@@ -1,5 +1,5 @@
 from db_requests import delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_into_table, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
@@ -8,19 +8,13 @@ from progress.bar import Bar
 from threading import Thread
 from pygame import mixer
 import configparser
-import logging
 import json
 import time
 import telebot
+from loguru import logger
 
-logging.basicConfig(
-    level=logging.NOTSET,
-    filename = "simple.log",
-    #format = "%(asctime)s - %(module)s - %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
-    datefmt='%H:%M:%S',
-    )
-
-logging.info('Hello')
+logger.add("simple.log")
+logger.debug("Start script")
 
 # Импорт cfg
 config = configparser.ConfigParser()    # создаём объекта парсера
@@ -87,18 +81,17 @@ def checking_for_a_diff():
             if not record:                                                                          # Если записи нет            
                 insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))        # Создание записи
             elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
-                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                # Обновить цену и оставить дату
+                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить цену и оставить дату
             else: 
-                update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))      # Выполнить обновление
+                update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))            # Выполнить обновление
         elif record:  
-            delete_sqlite_record(jsMessage['data']['s'], ba[0])                                     #  Удаляет заявки 0.000000                                   
+            delete_sqlite_record(jsMessage['data']['s'], ba[0])                                     #  Удаляет заявки меньшн < limit                                   
             
     while True:
         oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
             if 'stream' in jsMessage.keys():
-
 
                 # print(jsMessage)
                 for bid in jsMessage['data']['b']:
@@ -119,10 +112,11 @@ def check_old_data():
                     percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
                     if  percentage_to_density <= cf_distance:
                         dt_resend = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
-                        if record[5] != '1999-01-01 00:00:00.000000' and datetime.now() - time_resend < dt_resend:
+                        if record[5] != '2999-01-01 00:00:00.000000' and datetime.now() - time_resend > dt_resend:
                             update_enter_range(record[1], record[2])
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
-                            send_telegram(record, percentage_to_density)
+                            # send_telegram(record, percentage_to_density)
+                            logger.debug(f'{str(record)} {str(percentage_to_density)})')
                             sound_notification.play()
                     else: 
                         update_out_from_range(record[1], record[2], str(datetime.now()))
@@ -137,6 +131,7 @@ bot=telebot.TeleBot(token)
 
 # Запуск цикла Telebot
 def polling():
+    time.sleep(5)
     time.sleep(5)
     try: 
         bot.polling(none_stop=True) 

@@ -178,7 +178,7 @@ def update_enter_range (coin_name, price):
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """Update data set dt_out = '1999-01-01 00:00:00.000000' where coin_name = ? and price = ?"""
+        sql_update_query = """Update data set dt_out = '2999-01-01 00:00:00.000000' where coin_name = ? and price = ?"""
         data_tuple = (coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
