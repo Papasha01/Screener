@@ -6,21 +6,20 @@ import unicorn_binance_websocket_api
 from progress.spinner import Spinner 
 from progress.bar import Bar
 from threading import Thread
+from loguru import logger
 from pygame import mixer
 import configparser
 import json
 import time
 import telebot
-from loguru import logger
 
-logger.add("simple.log")
+logger.add("C:/Users/SSS/Desktop/Screener/simple.log")
 logger.debug("Start script")
 
 # Импорт cfg
-config = configparser.ConfigParser()    # создаём объекта парсера
-config.read("cfg.ini")                  # читаем конфиг
-config["Settings"]["time"]
-delta = timedelta(minutes = float(config["Settings"]["time"].strip ('"')))
+config = configparser.ConfigParser()                                                        # создаём объекта парсера
+config.read("C:/Users/SSS/Desktop/Screener/cfg.ini")                                        # читаем конфиг
+delta = timedelta(minutes = float(config["Settings"]["delta"].strip ('"')))
 time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
 limit = float(config["Settings"]["limit"].strip ('"'))
 cf_update = float(config["Settings"]["cf_update"].strip ('"'))
@@ -35,7 +34,7 @@ ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binanc
 
 # Парсинг файла с монетами в массив
 listCoin = []
-coins = open('coins.txt')
+coins = open('C:/Users/SSS/Desktop/Screener/coins.txt')
 for row in coins: listCoin.append(row.rstrip())
 coins.close()
 
@@ -64,12 +63,25 @@ def get_first_data():
         # print(f'Check: {row}')
         bar.next()
     
+
+# 0:773
+# 1:'ATOMUSDT'
+# 2:31.3
+# 3:14081.59
+# 4:'2022-04-02 16:48:07.421887'
+# 5:'1999-01-01 00:00:00.000000'
+
         for ba in depth_dict.values():
             for i in ba:
                 if (float(i[0])*float(i[1]))>limit:
-                    if not select_record(row, i[0]):                               # Если нет записи
-                        insert_into_table(row, i[0], i[1], str(datetime.now()))     # Создание записи
-                    else: update_record(row, i[0], i[1], str(datetime.now())),      # Обновление записи
+                    record = select_record(row, i[0])
+                    if not record:                                                     # Если записи нет            
+                        insert_into_table(row, i[0], i[1], str(datetime.now()))        # Создание записи
+                    elif float(record[3]) * cf_update < float(i[1]):                   # Если количество осталось
+                        update_record(row, i[0], i[1], record[4])                      # Обновить количество и оставить дату
+                    else: 
+                        update_record(row, i[0], i[1], str(datetime.now()))            # Выполнить обновление
+
     bar.finish()
     print('Import Complite')
 
@@ -81,7 +93,7 @@ def checking_for_a_diff():
             if not record:                                                                          # Если записи нет            
                 insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))        # Создание записи
             elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
-                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить цену и оставить дату
+                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить количество и оставить дату
             else: 
                 update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))            # Выполнить обновление
         elif record:  
@@ -115,13 +127,13 @@ def check_old_data():
                         if record[5] != '2999-01-01 00:00:00.000000' and datetime.now() - time_resend > dt_resend:
                             update_enter_range(record[1], record[2])
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
-                            # send_telegram(record, percentage_to_density)
+                            send_telegram(record, percentage_to_density)
                             logger.debug(f'{str(record)} {str(percentage_to_density)})')
                             sound_notification.play()
                     else: 
                         update_out_from_range(record[1], record[2], str(datetime.now()))
                 except Exception as e:
-                    print(e)
+                    logger.error(e)
                     sound_error.play()
                     check_old_data()
 
@@ -136,6 +148,7 @@ def polling():
     try: 
         bot.polling(none_stop=True) 
     except Exception as e: 
+        logger.error(e)
         sound_error_polling.play()
         polling()
 

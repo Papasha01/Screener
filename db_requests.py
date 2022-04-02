@@ -1,9 +1,9 @@
-from datetime import datetime
 import sqlite3
+from loguru import logger
 
 def select_record(namecoin, price):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_select_query = """select * from data where coin_name = ? and price = ?"""
@@ -17,6 +17,7 @@ def select_record(namecoin, price):
             return(False)
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -24,7 +25,7 @@ def select_record(namecoin, price):
 
 def select_all_records():
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_select_query = """select * from data"""
@@ -38,6 +39,7 @@ def select_all_records():
             return(False)
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -45,7 +47,7 @@ def select_all_records():
             
 def select_get_an_accepted_records(dt):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from data where dt < ?"""
         cursor.execute(sql_select_query, (str(dt),))
@@ -58,6 +60,7 @@ def select_get_an_accepted_records(dt):
             return(False)
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -65,7 +68,7 @@ def select_get_an_accepted_records(dt):
 
 def select_user_id(user_id):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from user_ids where id == ?"""
         cursor.execute(sql_select_query, (user_id,))
@@ -78,6 +81,7 @@ def select_user_id(user_id):
             return(False)
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -85,7 +89,7 @@ def select_user_id(user_id):
 
 def select_all_user_id():
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from user_ids"""
         cursor.execute(sql_select_query)
@@ -98,6 +102,7 @@ def select_all_user_id():
             return(False)
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -106,7 +111,7 @@ def select_all_user_id():
 def insert_into_table(coin_name, price, count, dt):
 
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sqlite_insert_with_param = """INSERT INTO data
@@ -118,6 +123,7 @@ def insert_into_table(coin_name, price, count, dt):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -126,7 +132,7 @@ def insert_into_table(coin_name, price, count, dt):
 def insert_user_id(user_id):
 
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sqlite_insert_with_param = """INSERT INTO user_ids VALUES (?);"""
@@ -135,6 +141,7 @@ def insert_user_id(user_id):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -142,7 +149,7 @@ def insert_user_id(user_id):
             
 def update_record(coin_name, price, count, dt):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set count = ?, dt= ? where coin_name = ? and price = ?"""
@@ -152,6 +159,7 @@ def update_record(coin_name, price, count, dt):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -159,7 +167,7 @@ def update_record(coin_name, price, count, dt):
 
 def update_out_from_range (coin_name, price, dt):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set dt_out = ? where coin_name = ? and price = ?"""
@@ -169,13 +177,14 @@ def update_out_from_range (coin_name, price, dt):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
             sqlite_connection.close()
 def update_enter_range (coin_name, price):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set dt_out = '2999-01-01 00:00:00.000000' where coin_name = ? and price = ?"""
@@ -185,6 +194,7 @@ def update_enter_range (coin_name, price):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -192,7 +202,7 @@ def update_enter_range (coin_name, price):
             
 def delete_sqlite_record(coin_name, price):
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
         sql_update_query = """DELETE from data where coin_name = ? and price = ?"""
         cursor.execute(sql_update_query, (coin_name, price, ))
@@ -200,6 +210,7 @@ def delete_sqlite_record(coin_name, price):
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
@@ -207,7 +218,7 @@ def delete_sqlite_record(coin_name, price):
 
 def delete_all_data():
     try:
-        sqlite_connection = sqlite3.connect('screener.db')
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query1 = """DELETE from data"""
@@ -218,6 +229,7 @@ def delete_all_data():
         cursor.close()
 
     except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
         print("Ошибка при работе с SQLite", error)
     finally:
         if sqlite_connection:
