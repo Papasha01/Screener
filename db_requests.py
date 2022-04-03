@@ -66,6 +66,27 @@ def select_get_an_accepted_records(dt):
         if sqlite_connection:
             sqlite_connection.close()
 
+def select_get_an_verified_record():
+    try:
+        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        cursor = sqlite_connection.cursor()
+        sql_select_query = """SELECT * from data where in_range = 1"""
+        cursor.execute(sql_select_query)
+        records = cursor.fetchall()
+        cursor.close()
+
+        if len(records) > 0:
+            return(records)
+        else:
+            return(False)
+
+    except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
 def select_user_id(user_id):
     try:
         sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
@@ -108,15 +129,14 @@ def select_all_user_id():
         if sqlite_connection:
             sqlite_connection.close()
 
-def insert_into_table(coin_name, price, count, dt):
-
+def insert_first(coin_name, price, count, dt):
     try:
         sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
         sqlite_insert_with_param = """INSERT INTO data
-                            (coin_name, price, count, dt)
-                            VALUES (?, ?, ?, ?);"""
+                            (coin_name, price, count, dt, in_range)
+                            VALUES (?, ?, ?, ?, 0);"""
         data_tuple = (coin_name, price, count, dt)
         cursor.execute(sqlite_insert_with_param, data_tuple)
         sqlite_connection.commit()
@@ -165,13 +185,13 @@ def update_record(coin_name, price, count, dt):
         if sqlite_connection:
             sqlite_connection.close()
 
-def update_out_from_range (coin_name, price, dt):
+def update_out_from_range (coin_name, price):
     try:
         sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """Update data set dt_out = ? where coin_name = ? and price = ?"""
-        data_tuple = (dt, coin_name, price)
+        sql_update_query = """Update data set in_range = 0 where coin_name = ? and price = ?"""
+        data_tuple = (coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
         cursor.close()
@@ -182,12 +202,13 @@ def update_out_from_range (coin_name, price, dt):
     finally:
         if sqlite_connection:
             sqlite_connection.close()
+
 def update_enter_range (coin_name, price):
     try:
         sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """Update data set dt_out = '2999-01-01 00:00:00.000000' where coin_name = ? and price = ?"""
+        sql_update_query = """Update data set in_range = 1 where coin_name = ? and price = ?"""
         data_tuple = (coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
@@ -240,3 +261,4 @@ def delete_all_data():
 # delete_all_data()
 # update_enter_range('AXSUSDT', 65.63)
 # update_out_from_range('AXSUSDT', 65.63, str(datetime.now()))
+# print(select_get_an_verified_record())

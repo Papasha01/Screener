@@ -1,4 +1,4 @@
-from db_requests import delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_into_table, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
+from db_requests import select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_first, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import datetime, timedelta
 from binance.spot import Spot as Client
 from asyncio.windows_events import NULL
@@ -9,6 +9,7 @@ from threading import Thread
 from loguru import logger
 from pygame import mixer
 import configparser
+import threading
 import json
 import time
 import telebot
@@ -45,15 +46,6 @@ spinner = Spinner('Checking ')
 ubwa.create_stream(['depth'], listCoin)
 print('Successful connection')
 
-# Переподключение к WebSocket каждые 23 часа
-def reconnect_websocket():
-    time.sleep(82800)
-    print('\nStart reconnecting')
-    ubwa.stop_stream(ubwa.get_request_id())
-    ubwa.create_stream(['depth'], listCoin)
-    print('\nSuccessful connection ')
-    reconnect_websocket() 
-
 # Первое получение данных
 def get_first_data():
     for row in listCoin:
@@ -62,21 +54,12 @@ def get_first_data():
         del depth_dict["lastUpdateId"]
         # print(f'Check: {row}')
         bar.next()
-    
-
-# 0:773
-# 1:'ATOMUSDT'
-# 2:31.3
-# 3:14081.59
-# 4:'2022-04-02 16:48:07.421887'
-# 5:'1999-01-01 00:00:00.000000'
-
         for ba in depth_dict.values():
             for i in ba:
                 if (float(i[0])*float(i[1]))>limit:
                     record = select_record(row, i[0])
                     if not record:                                                     # Если записи нет            
-                        insert_into_table(row, i[0], i[1], str(datetime.now()))        # Создание записи
+                        insert_first(row, i[0], i[1], str(datetime.now()))        # Создание записи
                     elif float(record[3]) * cf_update < float(i[1]):                   # Если количество осталось
                         update_record(row, i[0], i[1], record[4])                      # Обновить количество и оставить дату
                     else: 
@@ -85,13 +68,13 @@ def get_first_data():
     bar.finish()
     print('Import Complite')
 
-# Получение и проверка с sql получаемых записей
+# Получение данных из websocket и сравнение их с бд
 def checking_for_a_diff():
     def check(ba):
         record = select_record(jsMessage['data']['s'], ba[0])
         if float(ba[0])*float(ba[1])>limit:                                                         # Если цена * кол-во > limit
             if not record:                                                                          # Если записи нет            
-                insert_into_table(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))        # Создание записи
+                insert_first(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))             # Создание записи
             elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
                 update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить количество и оставить дату
             else: 
@@ -104,37 +87,37 @@ def checking_for_a_diff():
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
             if 'stream' in jsMessage.keys():
-
-                # print(jsMessage)
                 for bid in jsMessage['data']['b']:
                     check(bid)
                 for ask in jsMessage['data']['a']:
                     check(ask)
 
-# Отправка уведомлений
+# Проверка данных в БД
 def check_old_data():
     while True:
-        time.sleep(5)
+        # time.sleep(5)
         # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
         records = select_get_an_accepted_records(datetime.now() - delta)
         if records:
             for record in records:
                 try:
                     spot_client = Client(base_url="https://api1.binance.com")
-                    percentage_to_density = abs((float(spot_client.ticker_price(record[1])['price']) / float(record[2]) - 1))
+                    sign = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
+                    percentage_to_density = abs((sign) - 1)
                     if  percentage_to_density <= cf_distance:
-                        dt_resend = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
-                        if record[5] != '2999-01-01 00:00:00.000000' and datetime.now() - time_resend > dt_resend:
+                        if sign > 1:
+                            percentage_to_density = -percentage_to_density
                             update_enter_range(record[1], record[2])
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
                             send_telegram(record, percentage_to_density)
                             logger.debug(f'{str(record)} {str(percentage_to_density)})')
                             sound_notification.play()
                     else: 
-                        update_out_from_range(record[1], record[2], str(datetime.now()))
+                        update_out_from_range(record[1], record[2])
                 except Exception as e:
                     logger.error(e)
                     sound_error.play()
+                    time.sleep(10)
                     check_old_data()
 
 # Работа с ботом
@@ -144,21 +127,37 @@ bot=telebot.TeleBot(token)
 # Запуск цикла Telebot
 def polling():
     time.sleep(5)
-    time.sleep(5)
     try: 
         bot.polling(none_stop=True) 
     except Exception as e: 
         logger.error(e)
         sound_error_polling.play()
+        time.sleep(5)
         polling()
 
-# Запись id user в бдn
+# Взаимодействие с ботом
 @bot.message_handler(commands=['start'])
 def start_handler(message):
     bot.send_message(message.chat.id, "I'm working!")
 
     if not select_user_id(str(message.chat.id)):
         insert_user_id(str(message.chat.id))
+        
+@bot.message_handler(commands=['check'])
+def start_handler(message):
+    records = select_get_an_verified_record()
+    all_verified_message = ''
+    if records:
+        for record in records:
+            spot_client = Client(base_url="https://api1.binance.com")
+            sign = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
+            percentage_to_density = abs((sign) - 1)
+            if sign > 1:
+                percentage_to_density = -percentage_to_density
+            all_verified_message += f'Coin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}\n\n'
+        bot.send_message(message.chat.id, all_verified_message)
+    else: 
+        bot.send_message(message.chat.id, 'No records')
 
 # Отправка уведомления в телеграм
 def send_telegram(record, percentage_to_density):
@@ -192,5 +191,4 @@ if solution == 'y' or solution == 'Y':
 th1 = Thread(target=checking_for_a_diff).start()
 th2 = Thread(target=check_old_data).start()
 th3 = Thread(target=polling).start()
-th4 = Thread(target=reconnect_websocket).start()
 spin()

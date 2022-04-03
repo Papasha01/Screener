@@ -69,3 +69,20 @@ while True:
     GetDataCoin()
     CheckTheCoin()
     fullListCoin.append(newListCoin1)
+
+#     # Переподключение к WebSocket каждые 23 часа
+# def reconnect_websocket_every_23h():
+#     time.sleep(5)
+#     print('\nStart reconnecting')
+#     ubwa.stop_stream(ubwa.get_request_id())
+#     ubwa.create_stream(['depth'], listCoin)
+#     print('\nSuccessful connection ')
+#     print(threading.active_count())
+#     reconnect_websocket_every_23h() 
+
+# def reconnect_websocket():
+#     time.sleep(82800)
+#     print('\nStart reconnecting')
+#     ubwa.stop_stream(ubwa.get_request_id())
+#     ubwa.create_stream(['depth'], listCoin)
+#     print('\nSuccessful connection ')
