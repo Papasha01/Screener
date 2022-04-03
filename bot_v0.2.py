@@ -14,12 +14,12 @@ import json
 import time
 import telebot
 
-logger.add("C:/Users/SSS/Desktop/Screener/simple.log")
+logger.add("simple.log")
 logger.debug("Start script")
 
 # Импорт cfg
 config = configparser.ConfigParser()                                                        # создаём объекта парсера
-config.read("C:/Users/SSS/Desktop/Screener/cfg.ini")                                        # читаем конфиг
+config.read("cfg.ini")                                        # читаем конфиг
 delta = timedelta(minutes = float(config["Settings"]["delta"].strip ('"')))
 time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
 limit = float(config["Settings"]["limit"].strip ('"'))
@@ -35,7 +35,7 @@ ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binanc
 
 # Парсинг файла с монетами в массив
 listCoin = []
-coins = open('C:/Users/SSS/Desktop/Screener/coins.txt')
+coins = open('coins.txt')
 for row in coins: listCoin.append(row.rstrip())
 coins.close()
 

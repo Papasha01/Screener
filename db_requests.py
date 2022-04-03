@@ -3,7 +3,7 @@ from loguru import logger
 
 def select_record(namecoin, price):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_select_query = """select * from data where coin_name = ? and price = ?"""
@@ -25,7 +25,7 @@ def select_record(namecoin, price):
 
 def select_all_records():
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_select_query = """select * from data"""
@@ -47,7 +47,7 @@ def select_all_records():
             
 def select_get_an_accepted_records(dt):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from data where dt < ?"""
         cursor.execute(sql_select_query, (str(dt),))
@@ -68,7 +68,7 @@ def select_get_an_accepted_records(dt):
 
 def select_get_an_verified_record():
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from data where in_range = 1"""
         cursor.execute(sql_select_query)
@@ -89,7 +89,7 @@ def select_get_an_verified_record():
 
 def select_user_id(user_id):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from user_ids where id == ?"""
         cursor.execute(sql_select_query, (user_id,))
@@ -110,7 +110,7 @@ def select_user_id(user_id):
 
 def select_all_user_id():
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from user_ids"""
         cursor.execute(sql_select_query)
@@ -131,7 +131,7 @@ def select_all_user_id():
 
 def insert_first(coin_name, price, count, dt):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sqlite_insert_with_param = """INSERT INTO data
@@ -152,7 +152,7 @@ def insert_first(coin_name, price, count, dt):
 def insert_user_id(user_id):
 
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sqlite_insert_with_param = """INSERT INTO user_ids VALUES (?);"""
@@ -169,7 +169,7 @@ def insert_user_id(user_id):
             
 def update_record(coin_name, price, count, dt):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set count = ?, dt= ? where coin_name = ? and price = ?"""
@@ -187,7 +187,7 @@ def update_record(coin_name, price, count, dt):
 
 def update_out_from_range (coin_name, price):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set in_range = 0 where coin_name = ? and price = ?"""
@@ -205,7 +205,7 @@ def update_out_from_range (coin_name, price):
 
 def update_enter_range (coin_name, price):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query = """Update data set in_range = 1 where coin_name = ? and price = ?"""
@@ -223,7 +223,7 @@ def update_enter_range (coin_name, price):
             
 def delete_sqlite_record(coin_name, price):
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_update_query = """DELETE from data where coin_name = ? and price = ?"""
         cursor.execute(sql_update_query, (coin_name, price, ))
@@ -239,7 +239,7 @@ def delete_sqlite_record(coin_name, price):
 
 def delete_all_data():
     try:
-        sqlite_connection = sqlite3.connect('C:/Users/SSS/Desktop/Screener/screener.db')
+        sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
         sql_update_query1 = """DELETE from data"""
