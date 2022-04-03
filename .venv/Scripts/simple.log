@@ -1,0 +1,139 @@
+2022-04-03 02:01:32.948 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-03 02:03:53.551 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-03 02:17:47.346 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-03 02:41:27.880 | DEBUG    | __main__:check_old_data:129 - (1, 'AVAXUSDT', 95.92, 4602.82, '2022-04-03 01:50:06.047783', '2022-04-03 02:27:47.184676') 0.008340283569641338)
+2022-04-03 02:53:56.942 | DEBUG    | __main__:check_old_data:129 - (764, 'AVAXUSDT', 96.0, 5029.31, '2022-04-03 00:54:44.773267', '2022-04-03 02:40:22.657768') 0.00374999999999992)
+2022-04-03 02:56:44.296 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-03 03:03:12.184 | ERROR    | __main__:check_old_data:134 - HTTPSConnectionPool(host='api1.binance.com', port=443): Read timed out. (read timeout=None)
+2022-04-03 03:03:18.563 | ERROR    | __main__:polling:150 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2022-04-03 03:03:40.011 | ERROR    | __main__:polling:150 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=1&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000267D7764100>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 03:03:56.546 | ERROR    | __main__:polling:150 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2022-04-03 03:04:06.925 | ERROR    | __main__:polling:150 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=1&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000267D88B41F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 04:01:45.613 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-03 04:02:29.884 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:09:50.247 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:10:35.998 | DEBUG    | __main__:check_old_data:115 - (45, 'AVAXUSDT', 95.0, 6966.68, '2022-04-03 01:15:40.986442', '2022-04-03 04:03:02.443520') 0.009368421052631692)
+2022-04-03 04:10:41.523 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:11:03.428 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:22:58.032 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2022-04-03 04:23:08.057 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=1&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001FBF2951D50>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 04:27:45.965 | DEBUG    | __main__:check_old_data:114 - (42, 'GALAUSDT', 0.25, 1908376.0, '2022-04-02 22:14:10.281536', '2022-04-03 04:12:21.252655') 0.0033600000000000296)
+2022-04-03 04:29:10.482 | DEBUG    | __main__:check_old_data:114 - (119, 'NEARUSDT', 14.5, 39507.4, '2022-04-03 00:30:03.863177', '2022-04-03 04:13:43.553839') 0.009517241379310315)
+2022-04-03 04:55:19.607 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:55:58.902 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 04:59:39.497 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:09:00.365 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:09:34.272 | DEBUG    | __main__:check_old_data:114 - (42, 'GALAUSDT', 0.25, 1899647.0, '2022-04-02 22:14:10.281536', '2022-04-03 05:00:21.883329') 0.013879999999999892)
+2022-04-03 05:09:50.712 | DEBUG    | __main__:check_old_data:114 - (63, 'XRPUSDT', 0.8, 992541.0, '2022-04-02 22:14:15.141235', '2022-04-03 05:00:40.162489') 0.027499999999999858)
+2022-04-03 05:10:09.500 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:11:37.936 | DEBUG    | __main__:check_old_data:114 - (86, 'XRPUSDT', 0.845, 545159.0, '2022-04-03 02:42:37.158947', '2022-04-03 05:00:54.767962') 0.026627218934911157)
+2022-04-03 05:14:31.850 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:18:33.768 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:18:46.630 | ERROR    | __main__:polling:134 - local variable 'all_verified_message' referenced before assignment
+2022-04-03 05:19:55.316 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:20:33.224 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 05:21:45.990 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:21:06.835 | DEBUG    | __main__:check_old_data:114 - (1080, 'HNTUSDT', 27.0, 26375.16, '2022-04-03 05:22:03.756191', '2022-04-03 06:04:41.622642') 0.008148148148148127)
+2022-04-03 06:36:21.650 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:39:54.022 | ERROR    | __main__:check_old_data:119 - HTTPSConnectionPool(host='api1.binance.com', port=443): Read timed out. (read timeout=None)
+2022-04-03 06:39:55.650 | ERROR    | __main__:polling:134 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2022-04-03 06:40:15.704 | ERROR    | __main__:check_old_data:119 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=ATOMUSDT (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FEFDE200>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:40:26.100 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000210FEFDC9D0>, 'Connection to api.telegram.org timed out. (connect timeout=20)'))
+2022-04-03 06:40:40.932 | ERROR    | __main__:check_old_data:119 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=ATOMUSDT (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF0D4DF0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:40:41.571 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF0D61D0>: Failed to establish a new connection: [WinError 10053] Программа на вашем хост-компьютере разорвала установленное подключение'))
+2022-04-03 06:40:51.949 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF1E4FD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:40:52.100 | ERROR    | __main__:check_old_data:119 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=ATOMUSDT (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF1E4CA0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:41:14.378 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF1E7FD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:41:17.239 | ERROR    | __main__:check_old_data:119 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=ATOMUSDT (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF0D6650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:42:10.510 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2022-04-03 06:42:20.665 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF349150>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:42:30.835 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF348640>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:42:41.117 | ERROR    | __main__:polling:134 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910106&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000210FF3548B0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 06:43:29.181 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:47:11.039 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:47:42.114 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:48:51.147 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:48:54.787 | DEBUG    | __main__:check_old_data:117 - (2, 'ATOMUSDT', 33.0, 18104.84, '2022-04-02 22:13:31.036857', '2022-04-03 06:43:35.416307') 0.044242424242424305)
+2022-04-03 06:48:59.129 | DEBUG    | __main__:check_old_data:117 - (9, 'ADAUSDT', 1.105, 830089.2, '2022-04-02 22:13:53.721230', '2022-04-03 06:43:40.164259') -0.048868778280543035)
+2022-04-03 06:49:00.597 | DEBUG    | __main__:check_old_data:117 - (10, 'ADAUSDT', 1.104, 929478.3, '2022-04-02 22:13:53.727221', '2022-04-03 06:43:41.356343') -0.04981884057970998)
+2022-04-03 06:49:07.096 | DEBUG    | __main__:check_old_data:117 - (16, 'ADAUSDT', 1.2, 752941.0, '2022-04-02 22:13:53.767223', '2022-04-03 06:43:47.465233') 0.03500000000000003)
+2022-04-03 06:49:29.563 | DEBUG    | __main__:check_old_data:117 - (39, 'MANAUSDT', 2.9, 199197.0, '2022-04-02 22:14:09.643806', '2022-04-03 06:44:12.261107') 0.08451724137931027)
+2022-04-03 06:49:32.285 | DEBUG    | __main__:check_old_data:117 - (42, 'GALAUSDT', 0.25, 1854577.0, '2022-04-02 22:14:10.281536', '2022-04-03 06:44:14.807884') -0.023479999999999945)
+2022-04-03 06:49:38.677 | DEBUG    | __main__:check_old_data:117 - (50, 'ATOMUSDT', 34.0, 18571.73, '2022-04-02 22:14:11.565799', '2022-04-03 06:44:20.917446') 0.0711764705882354)
+2022-04-03 06:49:40.016 | DEBUG    | __main__:check_old_data:117 - (51, 'MANAUSDT', 2.8, 353755.0, '2022-04-02 22:14:11.615810', '2022-04-03 06:44:21.379866') 0.050999999999999934)
+2022-04-03 06:49:41.337 | DEBUG    | __main__:check_old_data:117 - (52, 'FTMUSDT', 1.7, 663558.0, '2022-04-03 05:08:52.745609', '2022-04-03 06:44:22.604717') 0.07841176470588229)
+2022-04-03 06:49:43.017 | DEBUG    | __main__:check_old_data:117 - (53, 'AVAXUSDT', 103.0, 25418.52, '2022-04-02 22:44:37.841370', '2022-04-03 06:44:23.921840') 0.05436893203883486)
+2022-04-03 06:49:50.695 | DEBUG    | __main__:check_old_data:117 - (59, 'ATOMUSDT', 35.0, 14305.29, '2022-04-03 01:51:59.107266', '2022-04-03 06:44:29.694482') 0.09828571428571431)
+2022-04-03 06:49:55.843 | DEBUG    | __main__:check_old_data:117 - (63, 'XRPUSDT', 0.8, 978228.0, '2022-04-02 22:14:15.141235', '2022-04-03 06:44:34.559217') -0.03412499999999996)
+2022-04-03 06:49:58.476 | DEBUG    | __main__:check_old_data:117 - (65, 'AVAXUSDT', 105.0, 20104.78, '2022-04-02 22:14:15.771944', '2022-04-03 06:44:37.105428') 0.07228571428571429)
+2022-04-03 06:50:03.652 | DEBUG    | __main__:check_old_data:117 - (70, 'AVAXUSDT', 92.0, 6595.34, '2022-04-03 01:51:02.078044', '2022-04-03 06:44:42.066281') -0.05869565217391304)
+2022-04-03 06:50:06.220 | DEBUG    | __main__:check_old_data:117 - (72, 'DOTUSDT', 25.0, 72086.24, '2022-04-03 04:46:54.011064', '2022-04-03 06:44:43.114806') 0.09360000000000002)
+2022-04-03 06:50:27.651 | DEBUG    | __main__:check_old_data:117 - (92, 'AVAXUSDT', 90.0, 6730.69, '2022-04-02 22:15:17.285686', '2022-04-03 06:45:05.908698') -0.08211111111111102)
+2022-04-03 06:50:31.906 | DEBUG    | __main__:check_old_data:117 - (96, 'SANDUSDT', 3.8, 124160.0, '2022-04-02 22:15:26.301552', '2022-04-03 06:45:09.154498') 0.08807894736842103)
+2022-04-03 06:50:40.183 | DEBUG    | __main__:check_old_data:117 - (103, 'HNTUSDT', 30.0, 26087.99, '2022-04-02 22:15:57.231156', '2022-04-03 06:45:17.565586') 0.09966666666666657)
+2022-04-03 06:50:46.038 | DEBUG    | __main__:check_old_data:117 - (108, 'AVAXUSDT', 108.0, 12806.68, '2022-04-02 22:16:11.237225', '2022-04-03 06:45:23.631767') 0.09842592592592592)
+2022-04-03 06:50:48.570 | DEBUG    | __main__:check_old_data:117 - (110, 'NEARUSDT', 17.0, 63522.2, '2022-04-02 22:16:18.344698', '2022-04-03 06:45:25.403200') 0.0834117647058823)
+2022-04-03 06:50:54.046 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 06:51:01.918 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 07:17:43.812 | ERROR    | __main__:check_old_data:122 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=NEARUSDT (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000024F7260E710>, 'Connection to api1.binance.com timed out. (connect timeout=None)'))
+2022-04-03 07:17:44.819 | ERROR    | __main__:polling:137 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2022-04-03 07:34:54.112 | DEBUG    | __main__:check_old_data:117 - (1204, 'AVAXUSDT', 99.0, 5840.98, '2022-04-03 06:20:49.951251', '2022-04-03 07:05:41.212968') 0.007979797979798087)
+2022-04-03 08:25:17.338 | ERROR    | __main__:check_old_data:122 - ('Connection aborted.', ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None))
+2022-04-03 08:25:17.362 | ERROR    | __main__:polling:137 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2022-04-03 08:25:28.168 | ERROR    | __main__:polling:137 - HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5276441681:AAHi9DX8ZYWVlm49AEBU1be0gVEXWmeKoZ8/getUpdates?offset=575910111&timeout=20 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024F7263FFD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 08:25:30.378 | ERROR    | __main__:check_old_data:122 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=ATOMUSDT (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000024F727B4580>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2022-04-03 08:35:57.639 | DEBUG    | __main__:check_old_data:117 - (589, 'AVAXUSDT', 100.0, 5715.7, '2022-04-03 07:59:35.296305', '2022-04-03 08:03:25.166682') 0.009199999999999986)
+2022-04-03 08:53:24.812 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 09:28:10.416 | DEBUG    | __main__:check_old_data:117 - (1879, 'ADAUSDT', 1.179, 513691.0, '2022-04-03 08:48:47.584635', '1999-01-01 00:00:00.000000') 0.0050890585241730735)
+2022-04-03 09:28:11.818 | DEBUG    | __main__:check_old_data:117 - (1880, 'ADAUSDT', 1.177, 347832.2, '2022-04-03 08:49:43.767228', '1999-01-01 00:00:00.000000') 0.003398470688190325)
+2022-04-03 09:47:29.975 | DEBUG    | __main__:check_old_data:117 - (1877, 'ADAUSDT', 1.175, 667851.3, '2022-04-03 09:10:10.101453', '1999-01-01 00:00:00.000000') 0.0008510638297872797)
+2022-04-03 09:49:53.777 | DEBUG    | __main__:check_old_data:117 - (110, 'NEARUSDT', 17.0, 53534.0, '2022-04-02 22:16:18.344698', '2022-04-03 09:30:07.712886') -0.0024117647058823355)
+2022-04-03 10:02:49.023 | DEBUG    | __main__:check_old_data:117 - (1168, 'NEARUSDT', 17.2, 21986.0, '2022-04-03 08:47:28.443257', '2022-04-03 09:44:32.319039') 0.00651162790697668)
+2022-04-03 10:38:35.024 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 10:44:01.558 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:01:32.250 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:01:45.592 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:45.595 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:47.198 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:47.201 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:47.632 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:47.635 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:49.200 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:49.202 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:49.205 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:01:49.617 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:11.118 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:03:17.682 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:03:22.685 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:03:29.917 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:29.919 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:30.753 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:30.755 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:30.758 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:31.211 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:03:31.215 | ERROR    | db_requests:insert_first:146 - Ошибка при работе с SQLite
+2022-04-03 13:06:26.692 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:09:02.187 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:10:29.515 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:12:34.178 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:12:43.115 | DEBUG    | __main__:check_old_data:113 - (3, 'ATOMUSDT', 32.5, 9526.95, '2022-04-03 13:10:42.689274', 0) -0.006769230769230639)
+2022-04-03 13:12:49.303 | DEBUG    | __main__:check_old_data:113 - (8, 'DOTUSDT', 22.0, 23342.53, '2022-04-03 13:10:46.773861', 0) -0.05545454545454542)
+2022-04-03 13:12:56.662 | DEBUG    | __main__:check_old_data:113 - (14, 'EOSUSDT', 2.794, 134952.8, '2022-04-03 13:10:58.223240', 0) -0.0035790980672869566)
+2022-04-03 13:13:02.051 | DEBUG    | __main__:check_old_data:113 - (20, 'ADAUSDT', 1.13, 354940.0, '2022-04-03 13:11:05.717188', 0) -0.030088495575221197)
+2022-04-03 13:13:03.408 | DEBUG    | __main__:check_old_data:113 - (21, 'ADAUSDT', 1.121, 677301.6, '2022-04-03 13:11:05.723764', 0) -0.038358608385370196)
+2022-04-03 13:13:05.114 | DEBUG    | __main__:check_old_data:113 - (22, 'ADAUSDT', 1.12, 351978.3, '2022-04-03 13:11:05.731197', 0) -0.03839285714285712)
+2022-04-03 13:13:06.528 | DEBUG    | __main__:check_old_data:113 - (23, 'ADAUSDT', 1.11, 340841.3, '2022-04-03 13:11:05.737203', 0) -0.047747747747747704)
+2022-04-03 13:13:08.231 | DEBUG    | __main__:check_old_data:113 - (24, 'ADAUSDT', 1.105, 846442.0, '2022-04-03 13:11:05.744209', 0) -0.052488687782805465)
+2022-04-03 13:13:09.549 | DEBUG    | __main__:check_old_data:113 - (25, 'ADAUSDT', 1.104, 928550.2, '2022-04-03 13:11:05.750214', 0) -0.05434782608695632)
+2022-04-03 13:13:11.078 | DEBUG    | __main__:check_old_data:113 - (26, 'ADAUSDT', 1.1, 439585.5, '2022-04-03 13:11:05.757221', 0) -0.05909090909090908)
+2022-04-03 13:13:12.533 | DEBUG    | __main__:check_old_data:113 - (27, 'ADAUSDT', 1.06, 857381.3, '2022-04-03 13:11:05.763226', 0) -0.09905660377358494)
+2022-04-03 13:13:30.589 | DEBUG    | __main__:check_old_data:113 - (44, 'DOGEUSDT', 0.1312, 5599045.0, '2022-04-03 13:11:12.936812', 0) -0.06935975609756095)
+2022-04-03 13:13:32.225 | DEBUG    | __main__:check_old_data:113 - (45, 'DOGEUSDT', 0.131, 2587358.0, '2022-04-03 13:11:12.943810', 0) -0.07099236641221385)
+2022-04-03 13:13:33.663 | DEBUG    | __main__:check_old_data:113 - (46, 'DOGEUSDT', 0.13, 5284067.0, '2022-04-03 13:11:12.950815', 0) -0.07923076923076922)
+2022-04-03 13:13:42.752 | DEBUG    | __main__:check_old_data:113 - (53, 'GALAUSDT', 0.25, 1894863.0, '2022-04-03 13:11:17.912074', 0) -0.03868000000000005)
+2022-04-03 13:13:50.021 | DEBUG    | __main__:check_old_data:113 - (60, 'SANDUSDT', 3.3, 113786.0, '2022-04-03 13:11:18.678771', 0) -0.06287878787878798)
+2022-04-03 13:14:10.912 | DEBUG    | __main__:check_old_data:113 - (77, 'AVAXUSDT', 90.0, 6625.02, '2022-04-03 13:11:23.020140', 0) -0.0955555555555554)
+2022-04-03 13:14:23.158 | DEBUG    | __main__:check_old_data:113 - (87, 'XRPUSDT', 0.8, 673332.0, '2022-04-03 13:11:25.846541', 0) -0.03974999999999995)
+2022-04-03 13:15:02.576 | DEBUG    | __main__:<module>:18 - Start script
+2022-04-03 13:46:05.332 | ERROR    | __main__:check_old_data:118 - HTTPSConnectionPool(host='api1.binance.com', port=443): Max retries exceeded with url: /api/v3/ticker/price?symbol=AVAXUSDT (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000020F94289720>, 'Connection to api1.binance.com timed out. (connect timeout=None)'))
+2022-04-03 13:46:12.920 | ERROR    | __main__:polling:133 - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
