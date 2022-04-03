@@ -1,7 +1,7 @@
 from db_requests import select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_first, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import datetime, timedelta
 from binance.spot import Spot as Client
-from asyncio.windows_events import NULL
+# from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
 from progress.spinner import Spinner 
 from progress.bar import Bar
@@ -9,7 +9,6 @@ from threading import Thread
 from loguru import logger
 from pygame import mixer
 import configparser
-import threading
 import json
 import time
 import telebot
@@ -21,7 +20,7 @@ logger.debug("Start script")
 config = configparser.ConfigParser()                                                        # создаём объекта парсера
 config.read("cfg.ini")                                        # читаем конфиг
 delta = timedelta(minutes = float(config["Settings"]["delta"].strip ('"')))
-time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
+# time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
 limit = float(config["Settings"]["limit"].strip ('"'))
 cf_update = float(config["Settings"]["cf_update"].strip ('"'))
 cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
@@ -31,6 +30,7 @@ mixer.init()
 sound_notification=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
 sound_error_polling=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_sicko_mode.mp3")
 sound_error=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_CDOxCYm.mp3")
+
 ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
 
 # Парсинг файла с монетами в массив
