@@ -50,7 +50,7 @@ def select_get_an_accepted_records(dt):
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_select_query = """SELECT * from data where dt < ?"""
-        cursor.execute(sql_select_query, (str(dt),))
+        cursor.execute(sql_select_query, (dt,))
         records = cursor.fetchall()
         cursor.close()
 
@@ -116,7 +116,6 @@ def select_all_user_id():
         cursor.execute(sql_select_query)
         records = cursor.fetchall()
         cursor.close()
-
         if len(records) > 0:
             return(records)
         else:
@@ -203,13 +202,13 @@ def update_out_from_range (coin_name, price):
         if sqlite_connection:
             sqlite_connection.close()
 
-def update_enter_range (coin_name, price):
+def update_enter_range (coin_name, price, dt):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
 
-        sql_update_query = """Update data set in_range = 1 where coin_name = ? and price = ?"""
-        data_tuple = (coin_name, price)
+        sql_update_query = """Update data set in_range = 1, timer = ? where coin_name = ? and price = ?"""
+        data_tuple = (dt, coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
         sqlite_connection.commit()
         cursor.close()

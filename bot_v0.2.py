@@ -1,5 +1,5 @@
 from db_requests import select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_first, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
 # from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
@@ -17,21 +17,20 @@ logger.add("simple.log")
 logger.debug("Start script")
 
 # Импорт cfg
-config = configparser.ConfigParser()                                                        # создаём объекта парсера
+config = configparser.ConfigParser()                          # создаём объекта парсера
 config.read("cfg.ini")                                        # читаем конфиг
 delta = timedelta(minutes = float(config["Settings"]["delta"].strip ('"')))
-# time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
+time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
 limit = float(config["Settings"]["limit"].strip ('"'))
 cf_update = float(config["Settings"]["cf_update"].strip ('"'))
 cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
 
 # Звук оповещения
 mixer.init() 
-sound_notification=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/nyaa_volumeUP.mp3")
-sound_error_polling=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_sicko_mode.mp3")
-sound_error=mixer.Sound("C:/Program Files (x86)/FSR Launcher/SubApps/CScalp/Data/Sounds/error_CDOxCYm.mp3")
+sound_notification=mixer.Sound("sounds/notification_nyaa.mp3")
+sound_error_polling=mixer.Sound("sounds/error_polling.mp3")
+sound_error=mixer.Sound("sounds/error_binance.mp3")
 
-ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
 
 # Парсинг файла с монетами в массив
 listCoin = []
@@ -43,6 +42,8 @@ coins.close()
 bar = Bar('Importing Coins', max = len(listCoin))
 spinner = Spinner('Checking ')
 
+# Подключеник к бинансу
+ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
 ubwa.create_stream(['depth'], listCoin)
 print('Successful connection')
 
@@ -58,12 +59,12 @@ def get_first_data():
             for i in ba:
                 if (float(i[0])*float(i[1]))>limit:
                     record = select_record(row, i[0])
-                    if not record:                                                     # Если записи нет            
-                        insert_first(row, i[0], i[1], str(datetime.now()))        # Создание записи
-                    elif float(record[3]) * cf_update < float(i[1]):                   # Если количество осталось
-                        update_record(row, i[0], i[1], record[4])                      # Обновить количество и оставить дату
+                    if not record:                                                      # Если записи нет            
+                        insert_first(row, i[0], i[1], str(datetime.now()))              # Создание записи
+                    elif float(record[3]) * cf_update < float(i[1]):                    # Если количество осталось
+                        update_record(row, i[0], i[1], record[4])                       # Обновить количество и оставить дату
                     else: 
-                        update_record(row, i[0], i[1], str(datetime.now()))            # Выполнить обновление
+                        update_record(row, i[0], i[1], str(datetime.now()))             # Выполнить обновление
 
     bar.finish()
     print('Import Complite')
@@ -92,22 +93,26 @@ def checking_for_a_diff():
                 for ask in jsMessage['data']['a']:
                     check(ask)
 
-# Проверка данных в БД
+# Проверка данных в БД, отправка уведомлений
 def check_old_data():
+    i = 0
     while True:
         # time.sleep(5)
         # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
-        records = select_get_an_accepted_records(datetime.now() - delta)
+        records = select_get_an_accepted_records(str(datetime.now() - delta))
         if records:
             for record in records:
+                i+=1
+                print(i)
                 try:
                     spot_client = Client(base_url="https://api1.binance.com")
-                    sign = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
-                    percentage_to_density = abs((sign) - 1)
+                    sign_ptd = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
+                    percentage_to_density = abs((sign_ptd) - 1)
+                    dt_out = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
                     if  percentage_to_density <= cf_distance:
-                        if sign > 1:
-                            percentage_to_density = -percentage_to_density
-                            update_enter_range(record[1], record[2])
+                        if datetime.now() - time_resend > dt_out and record[6] != 1:
+                            if sign_ptd > 1: percentage_to_density = -percentage_to_density
+                            update_enter_range(record[1], record[2], str(datetime.now()))
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
                             send_telegram(record, percentage_to_density)
                             logger.debug(f'{str(record)} {str(percentage_to_density)})')
@@ -139,9 +144,10 @@ def polling():
 @bot.message_handler(commands=['start'])
 def start_handler(message):
     bot.send_message(message.chat.id, "I'm working!")
-
+    logger.debug(f"User №{message.chat.id} send I'm working)")
     if not select_user_id(str(message.chat.id)):
         insert_user_id(str(message.chat.id))
+        logger.debug(f'User №{message.chat.id} added to the database)')
         
 @bot.message_handler(commands=['check'])
 def start_handler(message):
@@ -155,8 +161,10 @@ def start_handler(message):
             if sign > 1:
                 percentage_to_density = -percentage_to_density
             all_verified_message += f'Coin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}\n\n'
+        logger.debug(f"User №{message.chat.id} send all_verified_message")
         bot.send_message(message.chat.id, all_verified_message)
     else: 
+        logger.debug(f"User №{message.chat.id} send No records)")
         bot.send_message(message.chat.id, 'No records')
 
 # Отправка уведомления в телеграм
@@ -179,8 +187,11 @@ def spin():
 print ("Do you want to delete all the data? y/n")
 solution = input()
 if solution == 'y' or solution == 'Y':
-    if select_all_records():
-        delete_all_data()
+    print ("ARE YOU SURE? Write: y/n")   
+    solution = input()
+    if solution == 'y' or solution == 'Y':
+        if select_all_records():
+            delete_all_data()
 
 print ("Do you want to initialize coins? y/n")
 solution = input()
