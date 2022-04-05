@@ -114,13 +114,10 @@ def get_current_price_from_websocket():
 # Проверка данных в БД, отправка уведомлений
 def check_old_data():
     while True:
-        i=0
         # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
         records = select_get_an_accepted_records(str(datetime.now() - delta))
         if records:
             for record in records:
-                i+=1
-                print(i)
                 try:
                     sign_ptd = float(select_coin_current_price(record[1])) / float(record[2])
                     percentage_to_density = abs((sign_ptd) - 1)
