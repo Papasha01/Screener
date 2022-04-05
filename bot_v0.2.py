@@ -1,4 +1,4 @@
-from db_requests import select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_first, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
+from db_requests import update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
 # from asyncio.windows_events import NULL
@@ -42,10 +42,6 @@ coins.close()
 bar = Bar('Importing Coins', max = len(listCoin))
 spinner = Spinner('Checking ')
 
-# Подключеник к бинансу
-ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-ubwa.create_stream(['depth'], listCoin)
-print('Successful connection')
 
 # Первое получение данных
 def get_first_data():
@@ -60,7 +56,7 @@ def get_first_data():
                 if (float(i[0])*float(i[1]))>limit:
                     record = select_record(row, i[0])
                     if not record:                                                      # Если записи нет            
-                        insert_first(row, i[0], i[1], str(datetime.now()))              # Создание записи
+                        insert_depth(row, i[0], i[1], str(datetime.now()))              # Создание записи
                     elif float(record[3]) * cf_update < float(i[1]):                    # Если количество осталось
                         update_record(row, i[0], i[1], record[4])                       # Обновить количество и оставить дату
                     else: 
@@ -69,13 +65,22 @@ def get_first_data():
     bar.finish()
     print('Import Complite')
 
+# Подключеник к бинансу
+ubwa_depth = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
+ubwa_depth.create_stream(['depth'], listCoin)
+print('Successful connection ubwa_depth')
+
+ubwa_trade = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
+ubwa_trade.create_stream(['aggTrade'], listCoin)
+print('Successful connection ubwa_trade')
+
 # Получение данных из websocket и сравнение их с бд
-def checking_for_a_diff():
+def get_depth_from_websocket():
     def check(ba):
         record = select_record(jsMessage['data']['s'], ba[0])
         if float(ba[0])*float(ba[1])>limit:                                                         # Если цена * кол-во > limit
             if not record:                                                                          # Если записи нет            
-                insert_first(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))             # Создание записи
+                insert_depth(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))             # Создание записи
             elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
                 update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить количество и оставить дату
             else: 
@@ -84,7 +89,7 @@ def checking_for_a_diff():
             delete_sqlite_record(jsMessage['data']['s'], ba[0])                                     #  Удаляет заявки меньшн < limit                                   
             
     while True:
-        oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
+        oldest_data_from_stream_buffer = ubwa_depth.pop_stream_data_from_stream_buffer()
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
             if 'stream' in jsMessage.keys():
@@ -92,12 +97,24 @@ def checking_for_a_diff():
                     check(bid)
                 for ask in jsMessage['data']['a']:
                     check(ask)
+# {'stream': 'xrpusdt@aggTrade', 'data': {'e': 'aggTrade', 'E': 1649082249217, 's': 'XRPUSDT', 'a': 331831505, 'p': '0.82910000'
+def get_current_price_from_websocket():
+    while True:
+            oldest_data_from_stream_buffer = ubwa_trade.pop_stream_data_from_stream_buffer()
+            if oldest_data_from_stream_buffer:
+                jsMessage = json.loads(oldest_data_from_stream_buffer)
+                if 'stream' in jsMessage.keys():
+                    if select_coin_current_price(jsMessage['data']['s']):
+                        update_currnet_price(jsMessage['data']['s'], jsMessage['data']['p'])
+                    else: 
+                        insert_price(jsMessage['data']['s'], jsMessage['data']['p'])
+                    
+                
 
 # Проверка данных в БД, отправка уведомлений
 def check_old_data():
-    i = 0
     while True:
-        # time.sleep(5)
+        i=0
         # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
         records = select_get_an_accepted_records(str(datetime.now() - delta))
         if records:
@@ -105,8 +122,7 @@ def check_old_data():
                 i+=1
                 print(i)
                 try:
-                    spot_client = Client(base_url="https://api1.binance.com")
-                    sign_ptd = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
+                    sign_ptd = float(select_coin_current_price(record[1])) / float(record[2])
                     percentage_to_density = abs((sign_ptd) - 1)
                     dt_out = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
                     if  percentage_to_density <= cf_distance:
@@ -184,7 +200,7 @@ def spin():
         spinner.next()
 
 # Вызовы основных функций
-print ("Do you want to delete all the data? y/n")
+print ("\nDo you want to delete all the data? y/n")
 solution = input()
 if solution == 'y' or solution == 'Y':
     print ("ARE YOU SURE? Write: y/n")   
@@ -199,7 +215,8 @@ if solution == 'y' or solution == 'Y':
     get_first_data()
 
 # Запуск нескольких потоков
-th1 = Thread(target=checking_for_a_diff).start()
-th2 = Thread(target=check_old_data).start()
-th3 = Thread(target=polling).start()
+th1 = Thread(target=get_depth_from_websocket).start()
+th2 = Thread(target=get_current_price_from_websocket).start()
+th3 = Thread(target=check_old_data).start()
+th4 = Thread(target=polling).start()
 spin()
