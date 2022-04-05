@@ -184,3 +184,94 @@ Date of discovery: 2022-04-04 09:51:12.697339
 2022-04-04 11:26:14.248 | DEBUG    | __main__:<module>:17 - Start script
 2022-04-04 11:28:18.941 | DEBUG    | __main__:<module>:17 - Start script
 2022-04-04 11:30:53.550 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:04:47.784 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:30:09.409 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:30:44.800 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:30:54.642 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:30:54.785 | ERROR    | db_requests:insert_depth:145 - Ошибка при работе с SQLite
+2022-04-04 17:30:59.698 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:30:59.904 | ERROR    | db_requests:insert_depth:145 - Ошибка при работе с SQLite
+2022-04-04 17:31:06.411 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:31:11.132 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.139 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.143 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.146 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.150 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.153 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.157 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.160 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.187 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.486 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.489 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.492 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.495 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.498 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.501 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.504 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.507 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.510 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.516 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.520 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.649 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.652 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.656 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.659 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.663 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.716 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.795 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.842 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.932 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.935 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:11.998 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.124 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.127 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.132 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.136 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.139 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.142 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.145 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.278 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.417 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.497 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.500 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.503 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.505 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.548 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.621 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.624 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.667 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.670 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.673 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.742 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.745 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.816 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.819 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.822 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.865 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:31:12.948 | ERROR    | db_requests:insert_price:165 - Ошибка при работе с SQLite
+2022-04-04 17:32:27.006 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:39:48.115 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:45:46.022 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:49:45.640 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 17:49:56.450 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-04 18:02:03.123 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:17:09.073 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:17:22.655 | DEBUG    | __main__:check_old_data:138 - (5, 'NEARUSDT', 17.5, 27114.2, '2022-04-04 17:50:58.761926', '2000-01-01 00:00:00.000000', 0) 0.0013142857142857123)
+2022-04-05 08:24:07.442 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:26:04.463 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:26:59.419 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:28:21.274 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:29:49.489 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:31:21.747 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:34:44.517 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:34:50.063 | ERROR    | __main__:check_old_data:140 - float() argument must be a string or a real number, not 'list'
+2022-04-05 08:35:57.463 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:36:02.146 | ERROR    | __main__:check_old_data:140 - float() argument must be a string or a real number, not 'tuple'
+2022-04-05 08:36:13.695 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:36:37.200 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:36:47.817 | DEBUG    | __main__:check_old_data:135 - (94, 'ADAUSDT', 1.2, 608810.1, '2022-04-04 17:52:21.529341', '2000-01-01 00:00:00.000000', 0) -0.0033333333333334103)
+2022-04-05 08:36:53.385 | DEBUG    | __main__:check_old_data:135 - (418, 'LRCUSDT', 1.19, 1024306.0, '2022-04-04 18:02:32.808928', '2000-01-01 00:00:00.000000', 0) 0.004621848739495671)
+2022-04-05 08:37:57.725 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:38:10.626 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:38:50.410 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-05 08:39:30.177 | DEBUG    | __main__:start_handler:181 - User №471485149 send all_verified_message

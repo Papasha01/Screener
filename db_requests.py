@@ -128,7 +128,27 @@ def select_all_user_id():
         if sqlite_connection:
             sqlite_connection.close()
 
-def insert_first(coin_name, price, count, dt):
+def select_coin_current_price(coin_name):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+        sql_select_query = """SELECT * from current_price where coin_name = ?"""
+        cursor.execute(sql_select_query, (coin_name, ))
+        records = cursor.fetchall()
+        cursor.close()
+        if len(records) > 0:
+            return(records[0][2])
+        else:
+            return(False)
+
+    except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def insert_depth(coin_name, price, count, dt):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
@@ -137,6 +157,26 @@ def insert_first(coin_name, price, count, dt):
                             (coin_name, price, count, dt, in_range)
                             VALUES (?, ?, ?, ?, 0);"""
         data_tuple = (coin_name, price, count, dt)
+        cursor.execute(sqlite_insert_with_param, data_tuple)
+        sqlite_connection.commit()
+        cursor.close()
+
+    except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
+def insert_price(coin_name, price):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sqlite_insert_with_param = """INSERT INTO current_price
+                            (coin_name, price)
+                            VALUES (?, ?);"""
+        data_tuple = (coin_name, price)
         cursor.execute(sqlite_insert_with_param, data_tuple)
         sqlite_connection.commit()
         cursor.close()
@@ -166,6 +206,24 @@ def insert_user_id(user_id):
         if sqlite_connection:
             sqlite_connection.close()
             
+def update_currnet_price(coin_name, price):
+    try:
+        sqlite_connection = sqlite3.connect('screener.db')
+        cursor = sqlite_connection.cursor()
+
+        sql_update_query = """Update current_price set price = ? where coin_name = ?"""
+        data_tuple = (price, coin_name)
+        cursor.execute(sql_update_query, data_tuple)
+        sqlite_connection.commit()
+        cursor.close()
+
+    except sqlite3.Error as error:
+        logger.error("Ошибка при работе с SQLite", error)
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+
 def update_record(coin_name, price, count, dt):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
@@ -242,9 +300,11 @@ def delete_all_data():
         cursor = sqlite_connection.cursor()
 
         sql_update_query1 = """DELETE from data"""
-        sql_update_query2 = """DELETE from sqlite_sequence"""
+        sql_update_query2 = """DELETE from current_price"""
+        sql_update_query3 = """DELETE from sqlite_sequence"""
         cursor.execute(sql_update_query1)
         cursor.execute(sql_update_query2)
+        cursor.execute(sql_update_query3)
         sqlite_connection.commit()
         cursor.close()
 
