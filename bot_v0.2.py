@@ -1,7 +1,6 @@
 from db_requests import update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
-# from asyncio.windows_events import NULL
 import unicorn_binance_websocket_api
 from progress.spinner import Spinner 
 from progress.bar import Bar
@@ -31,7 +30,6 @@ sound_notification=mixer.Sound("sounds/notification_nyaa.mp3")
 sound_error_polling=mixer.Sound("sounds/error_polling.mp3")
 sound_error=mixer.Sound("sounds/error_binance.mp3")
 
-
 # Парсинг файла с монетами в массив
 listCoin = []
 coins = open('coins.txt')
@@ -49,7 +47,7 @@ def get_first_data():
         spot_client = Client(base_url="https://api1.binance.com")
         depth_dict = spot_client.depth(row, limit=150)
         del depth_dict["lastUpdateId"]
-        # print(f'Check: {row}')
+        insert_price(row, 0)
         bar.next()
         for ba in depth_dict.values():
             for i in ba:
@@ -61,55 +59,49 @@ def get_first_data():
                         update_record(row, i[0], i[1], record[4])                       # Обновить количество и оставить дату
                     else: 
                         update_record(row, i[0], i[1], str(datetime.now()))             # Выполнить обновление
-
     bar.finish()
     print('Import Complite')
 
+    
+
 # Подключеник к бинансу
 ubwa_depth = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-ubwa_depth.create_stream(['depth'], listCoin)
+ubwa_depth.create_stream(['depth', 'aggTrade'], listCoin)
 print('Successful connection ubwa_depth')
 
-ubwa_trade = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-ubwa_trade.create_stream(['aggTrade'], listCoin)
-print('Successful connection ubwa_trade')
+# ubwa_trade = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
+# ubwa_trade.create_stream(['aggTrade'], listCoin)
+# print('Successful connection ubwa_trade')
 
+# record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
 # Получение данных из websocket и сравнение их с бд
 def get_depth_from_websocket():
     def check(ba):
         record = select_record(jsMessage['data']['s'], ba[0])
-        if float(ba[0])*float(ba[1])>limit:                                                         # Если цена * кол-во > limit
-            if not record:                                                                          # Если записи нет            
-                insert_depth(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))             # Создание записи
-            elif float(record[3]) * cf_update < float(ba[1]):                                       # Если количество осталось
-                update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])                      # Обновить количество и оставить дату
-            else: 
-                update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))            # Выполнить обновление
-        elif record:  
-            delete_sqlite_record(jsMessage['data']['s'], ba[0])                                     #  Удаляет заявки меньшн < limit                                   
-            
+        if float(ba[0]) * float(ba[1]) > limit:
+            if record:
+                if float(record[3]) * cf_update < float(ba[1]):
+                    update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])
+                else:
+                    update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
+            else:
+                insert_depth(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
+        else:
+            delete_sqlite_record(jsMessage['data']['s'], ba[0])
+
     while True:
         oldest_data_from_stream_buffer = ubwa_depth.pop_stream_data_from_stream_buffer()
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
+            logger.info(jsMessage)
             if 'stream' in jsMessage.keys():
-                for bid in jsMessage['data']['b']:
-                    check(bid)
-                for ask in jsMessage['data']['a']:
-                    check(ask)
-# {'stream': 'xrpusdt@aggTrade', 'data': {'e': 'aggTrade', 'E': 1649082249217, 's': 'XRPUSDT', 'a': 331831505, 'p': '0.82910000'
-def get_current_price_from_websocket():
-    while True:
-            oldest_data_from_stream_buffer = ubwa_trade.pop_stream_data_from_stream_buffer()
-            if oldest_data_from_stream_buffer:
-                jsMessage = json.loads(oldest_data_from_stream_buffer)
-                if 'stream' in jsMessage.keys():
-                    if select_coin_current_price(jsMessage['data']['s']):
-                        update_currnet_price(jsMessage['data']['s'], jsMessage['data']['p'])
-                    else: 
-                        insert_price(jsMessage['data']['s'], jsMessage['data']['p'])
-                    
-                
+                if jsMessage['data']['e'] == 'depthUpdate':
+                    for bid in jsMessage['data']['b']:
+                        check(bid)
+                    for ask in jsMessage['data']['a']:
+                        check(ask)
+                elif jsMessage['data']['e'] == 'aggTrade':
+                    update_currnet_price(jsMessage['data']['s'], jsMessage['data']['p'])
 
 # Проверка данных в БД, отправка уведомлений
 def check_old_data():
@@ -168,8 +160,7 @@ def start_handler(message):
     all_verified_message = ''
     if records:
         for record in records:
-            spot_client = Client(base_url="https://api1.binance.com")
-            sign = float(spot_client.ticker_price(record[1])['price']) / float(record[2])
+            sign = float(select_coin_current_price(record[1])) / float(record[2])
             percentage_to_density = abs((sign) - 1)
             if sign > 1:
                 percentage_to_density = -percentage_to_density
@@ -213,7 +204,7 @@ if solution == 'y' or solution == 'Y':
 
 # Запуск нескольких потоков
 th1 = Thread(target=get_depth_from_websocket).start()
-th2 = Thread(target=get_current_price_from_websocket).start()
+#th2 = Thread(target=get_current_price_from_websocket).start()
 th3 = Thread(target=check_old_data).start()
 th4 = Thread(target=polling).start()
 spin()
