@@ -1,4 +1,4 @@
-from db_requests import update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
+from db_requests import select_records_by_coin_name, update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
 import unicorn_binance_websocket_api
@@ -11,6 +11,7 @@ import configparser
 import json
 import time
 import telebot
+import timeit
 
 logger.add("simple.log")
 logger.debug("Start script")
@@ -40,7 +41,6 @@ coins.close()
 bar = Bar('Importing Coins', max = len(listCoin))
 spinner = Spinner('Checking ')
 
-
 # Первое получение данных
 def get_first_data():
     for row in listCoin:
@@ -62,23 +62,18 @@ def get_first_data():
     bar.finish()
     print('Import Complite')
 
-    
-
 # Подключеник к бинансу
-ubwa_depth = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-ubwa_depth.create_stream(['depth', 'aggTrade'], listCoin)
-print('Successful connection ubwa_depth')
+ubwa = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
+ubwa.create_stream(['depth', 'aggTrade'], listCoin)
+print('Successful connection')
 
-# ubwa_trade = unicorn_binance_websocket_api.BinanceWebSocketApiManager(exchange="binance.com")
-# ubwa_trade.create_stream(['aggTrade'], listCoin)
-# print('Successful connection ubwa_trade')
-
-# record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
+# record = (101, 'AXSUSDT', 50.0, 6628.0, '2022-04-09 11:04:36.923037', '2022-04-09 11:10:19.273308', 1)
 # Получение данных из websocket и сравнение их с бд
 def get_depth_from_websocket():
-    def check(ba):
-        record = select_record(jsMessage['data']['s'], ba[0])
+    def check(ba, selcoin):
+        
         if float(ba[0]) * float(ba[1]) > limit:
+            record = select_record(jsMessage['data']['s'], ba[0])
             if record:
                 if float(record[3]) * cf_update < float(ba[1]):
                     update_record(jsMessage['data']['s'], ba[0], ba[1], record[4])
@@ -86,22 +81,24 @@ def get_depth_from_websocket():
                     update_record(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
             else:
                 insert_depth(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
-        else:
-            delete_sqlite_record(jsMessage['data']['s'], ba[0])
+        elif curcoin != False:
+            for price in curcoin:
+                if float(ba[0]) == price[2]: delete_sqlite_record(jsMessage['data']['s'], ba[0])
 
     while True:
-        oldest_data_from_stream_buffer = ubwa_depth.pop_stream_data_from_stream_buffer()
+        oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
         if oldest_data_from_stream_buffer:
             jsMessage = json.loads(oldest_data_from_stream_buffer)
-            logger.info(jsMessage)
             if 'stream' in jsMessage.keys():
                 if jsMessage['data']['e'] == 'depthUpdate':
+                    curcoin  = select_records_by_coin_name(jsMessage['data']['s'])
                     for bid in jsMessage['data']['b']:
-                        check(bid)
+                        check(bid, curcoin)
                     for ask in jsMessage['data']['a']:
-                        check(ask)
+                        check(ask, curcoin)
                 elif jsMessage['data']['e'] == 'aggTrade':
                     update_currnet_price(jsMessage['data']['s'], jsMessage['data']['p'])
+        else: time.sleep(0.1)
 
 # Проверка данных в БД, отправка уведомлений
 def check_old_data():
@@ -115,9 +112,9 @@ def check_old_data():
                     percentage_to_density = abs((sign_ptd) - 1)
                     dt_out = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
                     if  percentage_to_density <= cf_distance:
+                        update_enter_range(record[1], record[2], str(datetime.now()))
                         if datetime.now() - time_resend > dt_out and record[6] != 1:
                             if sign_ptd > 1: percentage_to_density = -percentage_to_density
-                            update_enter_range(record[1], record[2], str(datetime.now()))
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
                             send_telegram(record, percentage_to_density)
                             logger.debug(f'{str(record)} {str(percentage_to_density)})')
@@ -204,7 +201,6 @@ if solution == 'y' or solution == 'Y':
 
 # Запуск нескольких потоков
 th1 = Thread(target=get_depth_from_websocket).start()
-#th2 = Thread(target=get_current_price_from_websocket).start()
-th3 = Thread(target=check_old_data).start()
-th4 = Thread(target=polling).start()
+th2 = Thread(target=check_old_data).start()
+th3 = Thread(target=polling).start()
 spin()
