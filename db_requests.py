@@ -261,6 +261,7 @@ def update_out_from_range (coin_name, price):
     try:
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
+
         sql_update_query = """Update data set in_range = 0 where coin_name = ? and price = ?"""
         data_tuple = (coin_name, price)
         cursor.execute(sql_update_query, data_tuple)
@@ -297,7 +298,7 @@ def delete_sqlite_record(coin_name, price):
         sqlite_connection = sqlite3.connect('screener.db')
         cursor = sqlite_connection.cursor()
         sql_update_query = """DELETE from data where coin_name = ? and price = ?"""
-        cursor.execute(sql_update_query, (coin_name, price))
+        cursor.execute(sql_update_query, (coin_name, price, ))
         sqlite_connection.commit()
         cursor.close()
     except sqlite3.Error as error:

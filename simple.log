@@ -1,2 +1,0 @@
-2022-04-09 12:34:33.282 | DEBUG    | __main__:<module>:17 - Start script
-2022-04-09 12:34:53.398 | ERROR    | db_requests:update_currnet_price:236 - Ошибка при работе с SQLite attempt to write a readonly database
