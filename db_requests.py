@@ -9,12 +9,10 @@ def select_record(coin_name, price):
         cursor.execute(sql_select_query, (coin_name, price, ))
         records = cursor.fetchall()
         cursor.close()
-
         if len(records) > 0:
             return(records[0])
         else:
             return(False)
-
     except sqlite3.Error as error:
         logger.error(f"Ошибка при работе с SQLite {error}")
         
@@ -328,12 +326,3 @@ def delete_all_data():
     finally:
         if sqlite_connection:
             sqlite_connection.close()
-
-# from datetime import datetime
-# update_record('AXSUSDT', 65.63, 999, str(datetime.now()))
-# delete_all_data()
-# update_enter_range('AXSUSDT', 65.63)
-# update_out_from_range('AXSUSDT', 65.63, str(datetime.now()))
-# print(select_get_an_verified_record())
-# record = select_records_by_coin_name('ADAUSDT')
-# print(record)

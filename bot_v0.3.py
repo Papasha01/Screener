@@ -1,4 +1,4 @@
-from db_requests import select_records_by_coin_name, update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_sqlite_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
+from db_requests_mysql import select_records_by_coin_name, update_currnet_price, select_coin_current_price, insert_price, select_get_an_verified_record, delete_all_data, select_all_records, select_all_user_id, select_record, delete_record, insert_depth, update_enter_range, update_out_from_range, update_record, select_get_an_accepted_records, insert_user_id, select_user_id
 from datetime import date, datetime, timedelta
 from binance.spot import Spot as Client
 import unicorn_binance_websocket_api
@@ -70,7 +70,7 @@ print('Successful connection')
 # record = (101, 'AXSUSDT', 50.0, 6628.0, '2022-04-09 11:04:36.923037', '2022-04-09 11:10:19.273308', 1)
 # Получение данных из websocket и сравнение их с бд
 def get_depth_from_websocket():
-    def check(ba, selcoin):
+    def check(ba, curcoin):
         
         if float(ba[0]) * float(ba[1]) > limit:
             record = select_record(jsMessage['data']['s'], ba[0])
@@ -83,7 +83,8 @@ def get_depth_from_websocket():
                 insert_depth(jsMessage['data']['s'], ba[0], ba[1], str(datetime.now()))
         elif curcoin != False:
             for price in curcoin:
-                if float(ba[0]) == price[2]: delete_sqlite_record(jsMessage['data']['s'], ba[0])
+                if float(ba[0]) == price[2]: 
+                    delete_record(jsMessage['data']['s'], ba[0])
 
     while True:
         oldest_data_from_stream_buffer = ubwa.pop_stream_data_from_stream_buffer()
@@ -103,6 +104,7 @@ def get_depth_from_websocket():
 # Проверка данных в БД, отправка уведомлений
 def check_old_data():
     while True:
+        # datetime.datetime(2022, 4, 10, 15, 11, 1)
         # record = (3, 'SHIBUSDT', 2.556e-05, 6775264818.0, '2022-03-31 20:15:53.095394')
         records = select_get_an_accepted_records(str(datetime.now() - delta))
         if records:
@@ -110,10 +112,9 @@ def check_old_data():
                 try:
                     sign_ptd = float(select_coin_current_price(record[1])) / float(record[2])
                     percentage_to_density = abs((sign_ptd) - 1)
-                    dt_out = datetime.strptime(record[5], '%Y-%m-%d %H:%M:%S.%f')
                     if  percentage_to_density <= cf_distance:
-                        update_enter_range(record[1], record[2], str(datetime.now()))
-                        if datetime.now() - time_resend > dt_out and record[6] != 1:
+                        if datetime.now() - time_resend > record[5] and record[6] != 1:
+                            update_enter_range(record[1], record[2], str(datetime.now()))
                             if sign_ptd > 1: percentage_to_density = -percentage_to_density
                             print(f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}')
                             send_telegram(record, percentage_to_density)
@@ -173,7 +174,7 @@ def send_telegram(record, percentage_to_density):
     if select_all_user_id():
         for user_id in select_all_user_id():
             try:
-                bot.send_message(user_id[0], f'\n\nCoin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\n\nDate of discovery: {record[4]}\n')
+                bot.send_message(user_id[0], f'Coin: {record[1]}\nPrice: {record[2]}\nQuantity: {record[3]}\nAmount: {round(float(record[2]) * float(record[3]), 2)}$\nPercentage to density: {round(percentage_to_density*100, 2)}%\nDate of discovery: {record[4]}\n\n')
             except telebot.apihelper.ApiException as e:
                 if e.description == "Forbidden: bot was blocked by the user":
                     print(f"Attention please! The user {user_id[0]} has blocked the bot")

@@ -28,3 +28,487 @@
 2022-04-09 22:03:18.896 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
 2022-04-09 22:03:24.181 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
 2022-04-09 22:53:54.659 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:10:10.660 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:10:50.940 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:12:51.147 | ERROR    | db_requests_mysql:select_get_an_accepted_records:69 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 15:18:48.339 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:21:23.420 | ERROR    | db_requests_mysql:update_currnet_price:197 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 15:21:23.422 | ERROR    | db_requests_mysql:select_get_an_accepted_records:69 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 15:23:05.310 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:25:06.625 | ERROR    | db_requests_mysql:select_get_an_accepted_records:66 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 15:36:52.424 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:36:58.187 | ERROR    | __main__:check_old_data:125 - float() argument must be a string or a real number, not 'list'
+2022-04-10 15:37:53.779 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:38:06.311 | ERROR    | __main__:check_old_data:125 - float() argument must be a string or a real number, not 'list'
+2022-04-10 15:38:16.695 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:38:31.476 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:39:43.851 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:40:07.807 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:41:05.908 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:41:18.023 | ERROR    | __main__:check_old_data:125 - 'int' object is not subscriptable
+2022-04-10 15:41:23.416 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:41:50.860 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:43:38.213 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:44:01.848 | ERROR    | __main__:check_old_data:125 - float() argument must be a string or a real number, not 'tuple'
+2022-04-10 15:44:05.529 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:45:07.929 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:45:31.123 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:45:34.448 | ERROR    | __main__:check_old_data:125 - strptime() argument 1 must be str, not datetime.datetime
+2022-04-10 15:45:46.847 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 15:46:39.041 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:42:09.377 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:42:48.001 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:44:40.596 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:45:24.376 | ERROR    | __main__:check_old_data:126 - strptime() argument 1 must be str, not datetime.datetime
+2022-04-10 16:45:28.702 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:45:51.552 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:46:10.519 | DEBUG    | __main__:check_old_data:122 - (1065, 'ADAUSDT', 1.037, 334361.0, datetime.datetime(2022, 4, 10, 16, 42, 55, 134240), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0038572806171649487)
+2022-04-10 16:46:10.601 | DEBUG    | __main__:check_old_data:122 - (1073, 'AXSUSDT', 50.1, 27629.4, datetime.datetime(2022, 4, 10, 16, 43, 1, 557253), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:10.789 | DEBUG    | __main__:check_old_data:122 - (1092, 'FTMUSDT', 1.2588, 339576.0, datetime.datetime(2022, 4, 10, 16, 43, 11, 741925), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032570702256116135)
+2022-04-10 16:46:11.017 | DEBUG    | __main__:check_old_data:122 - (1113, 'AXSUSDT', 50.1, 27736.4, datetime.datetime(2022, 4, 10, 16, 43, 35, 655901), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.034 | DEBUG    | __main__:check_old_data:122 - (1114, 'FTMUSDT', 1.2588, 339774.0, datetime.datetime(2022, 4, 10, 16, 43, 35, 671916), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032570702256116135)
+2022-04-10 16:46:11.051 | DEBUG    | __main__:check_old_data:122 - (1115, 'AXSUSDT', 50.1, 27616.4, datetime.datetime(2022, 4, 10, 16, 43, 35, 822052), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.108 | DEBUG    | __main__:check_old_data:122 - (1121, 'AXSUSDT', 50.1, 27629.4, datetime.datetime(2022, 4, 10, 16, 43, 36, 313500), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.152 | DEBUG    | __main__:check_old_data:122 - (1125, 'AXSUSDT', 50.1, 27649.4, datetime.datetime(2022, 4, 10, 16, 43, 36, 826969), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.213 | DEBUG    | __main__:check_old_data:122 - (1131, 'FTMUSDT', 1.2588, 339576.0, datetime.datetime(2022, 4, 10, 16, 43, 38, 228246), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032570702256116135)
+2022-04-10 16:46:11.242 | DEBUG    | __main__:check_old_data:122 - (1133, 'AXSUSDT', 50.1, 27616.4, datetime.datetime(2022, 4, 10, 16, 43, 38, 336344), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.265 | DEBUG    | __main__:check_old_data:122 - (1135, 'AXSUSDT', 50.1, 27620.4, datetime.datetime(2022, 4, 10, 16, 43, 38, 501495), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.281 | DEBUG    | __main__:check_old_data:122 - (1136, 'AXSUSDT', 50.1, 27620.2, datetime.datetime(2022, 4, 10, 16, 43, 38, 766737), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.317 | DEBUG    | __main__:check_old_data:122 - (1139, 'AXSUSDT', 50.1, 27616.2, datetime.datetime(2022, 4, 10, 16, 43, 39, 194126), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.385 | DEBUG    | __main__:check_old_data:122 - (1145, 'AXSUSDT', 50.1, 27620.2, datetime.datetime(2022, 4, 10, 16, 43, 39, 890304), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.416 | DEBUG    | __main__:check_old_data:122 - (1147, 'ADAUSDT', 1.03, 293842.0, datetime.datetime(2022, 4, 10, 16, 43, 40, 264645), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002912621359223211)
+2022-04-10 16:46:11.470 | DEBUG    | __main__:check_old_data:122 - (1150, 'AXSUSDT', 50.1, 27616.2, datetime.datetime(2022, 4, 10, 16, 43, 40, 375275), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.510 | DEBUG    | __main__:check_old_data:122 - (1152, 'DOGEUSDT', 0.1529, 2455940.0, datetime.datetime(2022, 4, 10, 16, 43, 40, 511961), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0032701111837802888)
+2022-04-10 16:46:11.536 | DEBUG    | __main__:check_old_data:122 - (1154, 'ADAUSDT', 1.03, 298102.0, datetime.datetime(2022, 4, 10, 16, 43, 40, 602043), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002912621359223211)
+2022-04-10 16:46:11.560 | DEBUG    | __main__:check_old_data:122 - (1156, 'AXSUSDT', 50.1, 27620.2, datetime.datetime(2022, 4, 10, 16, 43, 41, 310096), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.604 | DEBUG    | __main__:check_old_data:122 - (1160, 'AXSUSDT', 50.1, 27633.2, datetime.datetime(2022, 4, 10, 16, 43, 41, 795921), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.625 | DEBUG    | __main__:check_old_data:122 - (1161, 'AXSUSDT', 50.1, 27620.2, datetime.datetime(2022, 4, 10, 16, 43, 42, 106204), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.658 | DEBUG    | __main__:check_old_data:122 - (1164, 'ADAUSDT', 1.029, 295952.0, datetime.datetime(2022, 4, 10, 16, 43, 42, 658288), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0038872691933915515)
+2022-04-10 16:46:11.681 | DEBUG    | __main__:check_old_data:122 - (1166, 'ADAUSDT', 1.037, 329957.0, datetime.datetime(2022, 4, 10, 16, 43, 42, 675303), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:11.697 | DEBUG    | __main__:check_old_data:122 - (1167, 'ADAUSDT', 1.037, 314957.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 21254), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:11.720 | DEBUG    | __main__:check_old_data:122 - (1169, 'FTMUSDT', 1.2588, 338844.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 121858), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032570702256116135)
+2022-04-10 16:46:11.744 | DEBUG    | __main__:check_old_data:122 - (1171, 'DOGEUSDT', 0.1529, 2548980.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 150885), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.003924133420536435)
+2022-04-10 16:46:11.760 | DEBUG    | __main__:check_old_data:122 - (1172, 'ADAUSDT', 1.029, 295716.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 596291), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004859086491739717)
+2022-04-10 16:46:11.794 | DEBUG    | __main__:check_old_data:122 - (1175, 'ADAUSDT', 1.029, 296659.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 787465), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004859086491739717)
+2022-04-10 16:46:11.809 | DEBUG    | __main__:check_old_data:122 - (1176, 'AXSUSDT', 50.1, 27620.2, datetime.datetime(2022, 4, 10, 16, 43, 43, 918113), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.832 | DEBUG    | __main__:check_old_data:122 - (1178, 'ADAUSDT', 1.029, 292102.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 979161), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004859086491739717)
+2022-04-10 16:46:11.898 | DEBUG    | __main__:check_old_data:122 - (1184, 'AXSUSDT', 50.1, 27713.9, datetime.datetime(2022, 4, 10, 16, 43, 44, 250409), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.926 | DEBUG    | __main__:check_old_data:122 - (1186, 'AXSUSDT', 50.1, 27823.7, datetime.datetime(2022, 4, 10, 16, 43, 44, 530176), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:11.995 | DEBUG    | __main__:check_old_data:122 - (1192, 'ADAUSDT', 1.029, 292675.0, datetime.datetime(2022, 4, 10, 16, 43, 45, 17968), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004859086491739717)
+2022-04-10 16:46:12.041 | DEBUG    | __main__:check_old_data:122 - (1196, 'AXSUSDT', 50.1, 27819.7, datetime.datetime(2022, 4, 10, 16, 43, 45, 189124), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:12.065 | DEBUG    | __main__:check_old_data:122 - (1198, 'AXSUSDT', 50.1, 27840.5, datetime.datetime(2022, 4, 10, 16, 43, 45, 459515), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:12.081 | DEBUG    | __main__:check_old_data:122 - (1199, 'AXSUSDT', 50.1, 27877.1, datetime.datetime(2022, 4, 10, 16, 43, 45, 699735), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:12.207 | DEBUG    | __main__:check_old_data:122 - (1211, 'DOGEUSDT', 0.1529, 2578500.0, datetime.datetime(2022, 4, 10, 16, 43, 47, 51414), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0032701111837802888)
+2022-04-10 16:46:12.233 | DEBUG    | __main__:check_old_data:122 - (1213, 'ADAUSDT', 1.037, 329957.0, datetime.datetime(2022, 4, 10, 16, 43, 47, 377711), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:12.249 | DEBUG    | __main__:check_old_data:122 - (1214, 'DOGEUSDT', 0.1529, 2631220.0, datetime.datetime(2022, 4, 10, 16, 43, 47, 761061), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0032701111837802888)
+2022-04-10 16:46:12.309 | DEBUG    | __main__:check_old_data:122 - (1220, 'ADAUSDT', 1.033, 290650.0, datetime.datetime(2022, 4, 10, 16, 43, 48, 406649), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0009680542110359625)
+2022-04-10 16:46:12.363 | DEBUG    | __main__:check_old_data:122 - (1225, 'ADAUSDT', 1.037, 331243.0, datetime.datetime(2022, 4, 10, 16, 43, 49, 191364), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:12.381 | DEBUG    | __main__:check_old_data:122 - (1226, 'DOGEUSDT', 0.1529, 2578500.0, datetime.datetime(2022, 4, 10, 16, 43, 49, 887999), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.002616088947024253)
+2022-04-10 16:46:12.446 | DEBUG    | __main__:check_old_data:122 - (1231, 'ADAUSDT', 1.037, 333445.0, datetime.datetime(2022, 4, 10, 16, 43, 50, 981996), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:12.462 | DEBUG    | __main__:check_old_data:122 - (1232, 'DOGEUSDT', 0.1529, 2585920.0, datetime.datetime(2022, 4, 10, 16, 43, 52, 234137), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.002616088947024253)
+2022-04-10 16:46:12.486 | DEBUG    | __main__:check_old_data:122 - (1233, 'AXSUSDT', 50.1, 27946.5, datetime.datetime(2022, 4, 10, 16, 43, 52, 318214), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:12.502 | DEBUG    | __main__:check_old_data:122 - (1234, 'ADAUSDT', 1.037, 335646.0, datetime.datetime(2022, 4, 10, 16, 43, 52, 366258), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:12.557 | DEBUG    | __main__:check_old_data:122 - (1239, 'ADAUSDT', 1.037, 333338.0, datetime.datetime(2022, 4, 10, 16, 43, 54, 148882), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028929604628735728)
+2022-04-10 16:46:12.592 | DEBUG    | __main__:check_old_data:122 - (1242, 'AXSUSDT', 50.1, 27959.4, datetime.datetime(2022, 4, 10, 16, 43, 54, 958144), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:12.648 | DEBUG    | __main__:check_old_data:122 - (1247, 'AXSUSDT', 50.1, 27947.4, datetime.datetime(2022, 4, 10, 16, 43, 56, 252324), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004790419161676773)
+2022-04-10 16:46:56.775 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:47:44.263 | DEBUG    | __main__:start_handler:149 - User №471485149 send I'm working)
+2022-04-10 16:47:44.279 | DEBUG    | __main__:start_handler:152 - User №471485149 added to the database)
+2022-04-10 16:48:08.090 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:48:24.595 | ERROR    | __main__:check_old_data:125 - 'int' object is not subscriptable
+2022-04-10 16:49:57.745 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:56:49.896 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:58:41.117 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:59:14.089 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 16:59:55.327 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:00:37.451 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:01:00.556 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:01:04.291 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:04.664 | DEBUG    | __main__:check_old_data:120 - (1101, 'DOGEUSDT', 0.154, 1979230.0, datetime.datetime(2022, 4, 10, 16, 43, 34, 11402), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.003896103896103842)
+2022-04-10 17:01:04.954 | DEBUG    | __main__:check_old_data:120 - (1116, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 35, 977194), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:05.210 | DEBUG    | __main__:check_old_data:120 - (1126, 'AXSUSDT', 50.0, 8021.32, datetime.datetime(2022, 4, 10, 16, 43, 37, 125241), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:05.364 | DEBUG    | __main__:check_old_data:120 - (1128, 'AXSUSDT', 50.0, 8001.41, datetime.datetime(2022, 4, 10, 16, 43, 37, 959000), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:05.767 | DEBUG    | __main__:check_old_data:120 - (1152, 'DOGEUSDT', 0.1529, 2455940.0, datetime.datetime(2022, 4, 10, 16, 43, 40, 511961), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.0032701111837802888)
+2022-04-10 17:01:06.100 | DEBUG    | __main__:check_old_data:120 - (1171, 'DOGEUSDT', 0.1529, 2548980.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 150885), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.0032701111837802888)
+2022-04-10 17:01:06.354 | DEBUG    | __main__:check_old_data:120 - (1177, 'AXSUSDT', 50.0, 8003.31, datetime.datetime(2022, 4, 10, 16, 43, 43, 927114), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:06.764 | DEBUG    | __main__:check_old_data:120 - (1203, 'AXSUSDT', 50.0, 8009.27, datetime.datetime(2022, 4, 10, 16, 43, 46, 221069), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041999999999999815)
+2022-04-10 17:01:07.006 | DEBUG    | __main__:check_old_data:120 - (1211, 'DOGEUSDT', 0.1529, 2578500.0, datetime.datetime(2022, 4, 10, 16, 43, 47, 51414), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:07.220 | DEBUG    | __main__:check_old_data:120 - (1214, 'DOGEUSDT', 0.1529, 2631220.0, datetime.datetime(2022, 4, 10, 16, 43, 47, 761061), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:07.544 | DEBUG    | __main__:check_old_data:120 - (1226, 'DOGEUSDT', 0.1529, 2578500.0, datetime.datetime(2022, 4, 10, 16, 43, 49, 887999), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:07.783 | DEBUG    | __main__:check_old_data:120 - (1232, 'DOGEUSDT', 0.1529, 2585920.0, datetime.datetime(2022, 4, 10, 16, 43, 52, 234137), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:08.137 | DEBUG    | __main__:check_old_data:120 - (1253, 'DOGEUSDT', 0.1529, 2578500.0, datetime.datetime(2022, 4, 10, 16, 43, 57, 847787), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:08.370 | DEBUG    | __main__:check_old_data:120 - (1259, 'DOGEUSDT', 0.1529, 2486830.0, datetime.datetime(2022, 4, 10, 16, 44, 1, 159806), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:08.549 | DEBUG    | __main__:check_old_data:120 - (1264, 'DOGEUSDT', 0.1529, 2921740.0, datetime.datetime(2022, 4, 10, 16, 44, 3, 996391), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:08.712 | DEBUG    | __main__:check_old_data:120 - (1266, 'ADAUSDT', 1.027, 341958.0, datetime.datetime(2022, 4, 10, 16, 44, 4, 154536), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:08.985 | DEBUG    | __main__:check_old_data:120 - (1275, 'DOGEUSDT', 0.1529, 2926840.0, datetime.datetime(2022, 4, 10, 16, 44, 7, 49801), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:09.153 | DEBUG    | __main__:check_old_data:120 - (1278, 'ADAUSDT', 1.027, 343220.0, datetime.datetime(2022, 4, 10, 16, 44, 8, 142796), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:09.316 | DEBUG    | __main__:check_old_data:120 - (1280, 'DOGEUSDT', 0.1529, 2979520.0, datetime.datetime(2022, 4, 10, 16, 44, 10, 156631), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:09.520 | DEBUG    | __main__:check_old_data:120 - (1284, 'DOGEUSDT', 0.1529, 2544610.0, datetime.datetime(2022, 4, 10, 16, 44, 13, 150360), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:09.746 | DEBUG    | __main__:check_old_data:120 - (1287, 'AXSUSDT', 50.0, 8008.11, datetime.datetime(2022, 4, 10, 16, 44, 13, 693856), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0026000000000001577)
+2022-04-10 17:01:09.939 | DEBUG    | __main__:check_old_data:120 - (1291, 'ADAUSDT', 1.027, 341958.0, datetime.datetime(2022, 4, 10, 16, 44, 13, 838988), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:10.101 | DEBUG    | __main__:check_old_data:120 - (1294, 'ADAUSDT', 1.027, 342241.0, datetime.datetime(2022, 4, 10, 16, 44, 14, 163284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:10.290 | DEBUG    | __main__:check_old_data:120 - (1296, 'DOGEUSDT', 0.1529, 2491930.0, datetime.datetime(2022, 4, 10, 16, 44, 14, 219335), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.003924133420536213)
+2022-04-10 17:01:10.491 | DEBUG    | __main__:check_old_data:120 - (1299, 'ADAUSDT', 1.027, 344827.0, datetime.datetime(2022, 4, 10, 16, 44, 19, 786434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:10.654 | DEBUG    | __main__:check_old_data:120 - (1300, 'ADAUSDT', 1.027, 337827.0, datetime.datetime(2022, 4, 10, 16, 44, 21, 286801), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:10.890 | DEBUG    | __main__:check_old_data:120 - (1306, 'ADAUSDT', 1.027, 334173.0, datetime.datetime(2022, 4, 10, 16, 44, 22, 507914), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:11.062 | DEBUG    | __main__:check_old_data:120 - (1308, 'ADAUSDT', 1.027, 341173.0, datetime.datetime(2022, 4, 10, 16, 44, 23, 58416), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:11.217 | DEBUG    | __main__:check_old_data:120 - (1309, 'ADAUSDT', 1.027, 340921.0, datetime.datetime(2022, 4, 10, 16, 44, 23, 437762), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:11.394 | DEBUG    | __main__:check_old_data:120 - (1311, 'DOGEUSDT', 0.1529, 2926840.0, datetime.datetime(2022, 4, 10, 16, 44, 23, 549864), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:11.587 | DEBUG    | __main__:check_old_data:120 - (1316, 'ADAUSDT', 1.027, 320532.0, datetime.datetime(2022, 4, 10, 16, 44, 24, 246499), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:11.756 | DEBUG    | __main__:check_old_data:120 - (1317, 'AXSUSDT', 50.0, 8002.15, datetime.datetime(2022, 4, 10, 16, 44, 27, 237922), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0026000000000001577)
+2022-04-10 17:01:11.925 | DEBUG    | __main__:check_old_data:120 - (1321, 'ADAUSDT', 1.027, 319268.0, datetime.datetime(2022, 4, 10, 16, 44, 29, 192249), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:12.142 | DEBUG    | __main__:check_old_data:120 - (1331, 'ADAUSDT', 1.027, 341698.0, datetime.datetime(2022, 4, 10, 16, 44, 36, 266698), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:12.302 | DEBUG    | __main__:check_old_data:120 - (1333, 'DOGEUSDT', 0.1529, 3021740.0, datetime.datetime(2022, 4, 10, 16, 44, 38, 28998), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:12.554 | DEBUG    | __main__:check_old_data:120 - (1342, 'ADAUSDT', 1.027, 319268.0, datetime.datetime(2022, 4, 10, 16, 45, 25, 765858), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:12.700 | DEBUG    | __main__:check_old_data:120 - (1344, 'DOGEUSDT', 0.1529, 3034100.0, datetime.datetime(2022, 4, 10, 16, 45, 25, 998063), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:12.849 | DEBUG    | __main__:check_old_data:120 - (1345, 'ADAUSDT', 1.027, 319422.0, datetime.datetime(2022, 4, 10, 16, 45, 26, 184234), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:13.014 | DEBUG    | __main__:check_old_data:120 - (1346, 'DOGEUSDT', 0.1529, 2939200.0, datetime.datetime(2022, 4, 10, 16, 45, 26, 250294), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:13.215 | DEBUG    | __main__:check_old_data:120 - (1351, 'DOGEUSDT', 0.1533, 2869970.0, datetime.datetime(2022, 4, 10, 16, 46, 11, 180884), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.001956947162426559)
+2022-04-10 17:01:13.408 | DEBUG    | __main__:check_old_data:120 - (1358, 'DOGEUSDT', 0.1533, 2909030.0, datetime.datetime(2022, 4, 10, 16, 46, 12, 119916), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002609262883235486)
+2022-04-10 17:01:13.599 | DEBUG    | __main__:check_old_data:120 - (1362, 'DOGEUSDT', 0.1533, 2869970.0, datetime.datetime(2022, 4, 10, 16, 46, 12, 637385), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002609262883235486)
+2022-04-10 17:01:13.757 | DEBUG    | __main__:check_old_data:120 - (1363, 'ADAUSDT', 1.027, 362850.0, datetime.datetime(2022, 4, 10, 16, 47, 8, 246019), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:13.955 | DEBUG    | __main__:check_old_data:120 - (1367, 'ADAUSDT', 1.027, 365315.0, datetime.datetime(2022, 4, 10, 16, 47, 8, 866585), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:14.241 | DEBUG    | __main__:check_old_data:120 - (1378, 'AXSUSDT', 50.0, 8002.53, datetime.datetime(2022, 4, 10, 16, 47, 9, 912284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:14.484 | DEBUG    | __main__:check_old_data:120 - (1379, 'ADAUSDT', 1.027, 366566.0, datetime.datetime(2022, 4, 10, 16, 47, 10, 95450), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:14.746 | DEBUG    | __main__:check_old_data:120 - (1384, 'ADAUSDT', 1.027, 369781.0, datetime.datetime(2022, 4, 10, 16, 47, 10, 663968), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:14.985 | DEBUG    | __main__:check_old_data:120 - (1388, 'ADAUSDT', 1.027, 371057.0, datetime.datetime(2022, 4, 10, 16, 47, 11, 234488), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:15.215 | DEBUG    | __main__:check_old_data:120 - (1390, 'ADAUSDT', 1.027, 372306.0, datetime.datetime(2022, 4, 10, 16, 47, 11, 376617), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:15.505 | DEBUG    | __main__:check_old_data:120 - (1397, 'ADAUSDT', 1.027, 371055.0, datetime.datetime(2022, 4, 10, 16, 47, 12, 328485), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:15.758 | DEBUG    | __main__:check_old_data:120 - (1398, 'ADAUSDT', 1.027, 366967.0, datetime.datetime(2022, 4, 10, 16, 47, 12, 586720), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:16.024 | DEBUG    | __main__:check_old_data:120 - (1399, 'DOTUSDT', 19.33, 16969.7, datetime.datetime(2022, 4, 10, 16, 47, 12, 707831), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:16.278 | DEBUG    | __main__:check_old_data:120 - (1400, 'ADAUSDT', 1.027, 364493.0, datetime.datetime(2022, 4, 10, 16, 47, 12, 826940), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:16.512 | DEBUG    | __main__:check_old_data:120 - (1402, 'ADAUSDT', 1.027, 362567.0, datetime.datetime(2022, 4, 10, 16, 47, 13, 244320), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:16.762 | DEBUG    | __main__:check_old_data:120 - (1409, 'ADAUSDT', 1.027, 363832.0, datetime.datetime(2022, 4, 10, 16, 47, 14, 144140), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:16.954 | DEBUG    | __main__:check_old_data:120 - (1412, 'ADAUSDT', 1.027, 365083.0, datetime.datetime(2022, 4, 10, 16, 47, 15, 868712), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:17.179 | DEBUG    | __main__:check_old_data:120 - (1418, 'DOTUSDT', 19.33, 16985.1, datetime.datetime(2022, 4, 10, 16, 47, 17, 13756), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:17.340 | DEBUG    | __main__:check_old_data:120 - (1422, 'ADAUSDT', 1.027, 362567.0, datetime.datetime(2022, 4, 10, 16, 47, 18, 963513), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:17.913 | DEBUG    | __main__:check_old_data:120 - (1463, 'ADAUSDT', 1.027, 345527.0, datetime.datetime(2022, 4, 10, 16, 47, 34, 182789), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:18.159 | DEBUG    | __main__:check_old_data:120 - (1472, 'DOTUSDT', 19.33, 16969.7, datetime.datetime(2022, 4, 10, 16, 47, 37, 128815), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:18.300 | DEBUG    | __main__:check_old_data:120 - (1473, 'ADAUSDT', 1.027, 345810.0, datetime.datetime(2022, 4, 10, 16, 47, 37, 901118), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:18.552 | DEBUG    | __main__:check_old_data:120 - (1481, 'AXSUSDT', 50.0, 8001.71, datetime.datetime(2022, 4, 10, 16, 47, 40, 901330), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0026000000000001577)
+2022-04-10 17:01:18.786 | DEBUG    | __main__:check_old_data:120 - (1491, 'AXSUSDT', 50.0, 8001.51, datetime.datetime(2022, 4, 10, 16, 47, 44, 953496), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0026000000000001577)
+2022-04-10 17:01:18.980 | DEBUG    | __main__:check_old_data:120 - (1492, 'ADAUSDT', 1.027, 380340.0, datetime.datetime(2022, 4, 10, 16, 47, 46, 46374), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:19.138 | DEBUG    | __main__:check_old_data:120 - (1493, 'DOGEUSDT', 0.1533, 2521180.0, datetime.datetime(2022, 4, 10, 16, 47, 46, 386219), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002609262883235486)
+2022-04-10 17:01:19.286 | DEBUG    | __main__:check_old_data:120 - (1494, 'ADAUSDT', 1.027, 382544.0, datetime.datetime(2022, 4, 10, 16, 47, 47, 88197), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:19.539 | DEBUG    | __main__:check_old_data:120 - (1503, 'ADAUSDT', 1.027, 382827.0, datetime.datetime(2022, 4, 10, 16, 47, 50, 719824), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:19.678 | DEBUG    | __main__:check_old_data:120 - (1504, 'ADAUSDT', 1.027, 381588.0, datetime.datetime(2022, 4, 10, 16, 47, 51, 59133), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:19.828 | DEBUG    | __main__:check_old_data:120 - (1505, 'ADAUSDT', 1.027, 379100.0, datetime.datetime(2022, 4, 10, 16, 47, 52, 44614), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:19.999 | DEBUG    | __main__:check_old_data:120 - (1508, 'ADAUSDT', 1.027, 345810.0, datetime.datetime(2022, 4, 10, 16, 47, 52, 909402), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:20.243 | DEBUG    | __main__:check_old_data:120 - (1519, 'ADAUSDT', 1.027, 345844.0, datetime.datetime(2022, 4, 10, 16, 47, 59, 976337), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:20.392 | DEBUG    | __main__:check_old_data:120 - (1520, 'DOGEUSDT', 0.1529, 2533930.0, datetime.datetime(2022, 4, 10, 16, 48, 0, 238597), datetime.datetime(2022, 4, 10, 16, 50, 52, 666599), 0) -0.004578155657292138)
+2022-04-10 17:01:20.603 | DEBUG    | __main__:check_old_data:120 - (1523, 'ADAUSDT', 1.027, 345810.0, datetime.datetime(2022, 4, 10, 16, 48, 15, 912250), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:20.792 | DEBUG    | __main__:check_old_data:120 - (1527, 'ADAUSDT', 1.027, 345849.0, datetime.datetime(2022, 4, 10, 16, 48, 17, 2530), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:20.938 | DEBUG    | __main__:check_old_data:120 - (1530, 'ADAUSDT', 1.027, 345566.0, datetime.datetime(2022, 4, 10, 16, 48, 18, 200293), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:21.140 | DEBUG    | __main__:check_old_data:120 - (1536, 'ADAUSDT', 1.027, 345527.0, datetime.datetime(2022, 4, 10, 16, 48, 20, 92513), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:21.314 | DEBUG    | __main__:check_old_data:120 - (1537, 'DOTUSDT', 19.33, 16971.8, datetime.datetime(2022, 4, 10, 16, 48, 20, 974635), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:21.660 | DEBUG    | __main__:check_old_data:120 - (1552, 'DOTUSDT', 19.33, 16969.7, datetime.datetime(2022, 4, 10, 16, 48, 29, 31372), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:21.969 | DEBUG    | __main__:check_old_data:120 - (1564, 'DOTUSDT', 19.33, 16971.8, datetime.datetime(2022, 4, 10, 16, 48, 32, 326665), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:22.178 | DEBUG    | __main__:check_old_data:120 - (1569, 'ADAUSDT', 1.027, 346494.0, datetime.datetime(2022, 4, 10, 16, 48, 33, 246273), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:22.314 | DEBUG    | __main__:check_old_data:120 - (1571, 'ADAUSDT', 1.027, 346777.0, datetime.datetime(2022, 4, 10, 16, 48, 35, 954288), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:22.534 | DEBUG    | __main__:check_old_data:120 - (1575, 'DOTUSDT', 19.33, 16969.7, datetime.datetime(2022, 4, 10, 16, 48, 39, 46369), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:22.737 | DEBUG    | __main__:check_old_data:120 - (1581, 'ADAUSDT', 1.027, 345810.0, datetime.datetime(2022, 4, 10, 16, 48, 40, 2494), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:22.899 | DEBUG    | __main__:check_old_data:120 - (1583, 'ADAUSDT', 1.027, 345527.0, datetime.datetime(2022, 4, 10, 16, 48, 42, 148548), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:23.127 | DEBUG    | __main__:check_old_data:120 - (1585, 'DOTUSDT', 19.33, 16971.8, datetime.datetime(2022, 4, 10, 16, 48, 43, 903329), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:23.350 | DEBUG    | __main__:check_old_data:120 - (1588, 'ADAUSDT', 1.027, 345810.0, datetime.datetime(2022, 4, 10, 16, 48, 44, 950317), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:23.547 | DEBUG    | __main__:check_old_data:120 - (1590, 'ADAUSDT', 1.036, 290603.0, datetime.datetime(2022, 4, 10, 16, 48, 46, 512197), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:23.788 | DEBUG    | __main__:check_old_data:120 - (1592, 'ADAUSDT', 1.027, 343985.0, datetime.datetime(2022, 4, 10, 16, 48, 47, 183553), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:24.077 | DEBUG    | __main__:check_old_data:120 - (1593, 'ADAUSDT', 1.036, 293186.0, datetime.datetime(2022, 4, 10, 16, 48, 47, 263626), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:24.298 | DEBUG    | __main__:check_old_data:120 - (1594, 'ADAUSDT', 1.027, 343702.0, datetime.datetime(2022, 4, 10, 16, 48, 47, 999404), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:24.510 | DEBUG    | __main__:check_old_data:120 - (1595, 'ADAUSDT', 1.036, 295453.0, datetime.datetime(2022, 4, 10, 16, 48, 48, 7412), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:24.779 | DEBUG    | __main__:check_old_data:120 - (1598, 'ADAUSDT', 1.027, 343218.0, datetime.datetime(2022, 4, 10, 16, 48, 49, 286723), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:25.013 | DEBUG    | __main__:check_old_data:120 - (1599, 'ADAUSDT', 1.036, 295753.0, datetime.datetime(2022, 4, 10, 16, 48, 49, 294730), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:25.239 | DEBUG    | __main__:check_old_data:120 - (1600, 'ADAUSDT', 1.036, 306627.0, datetime.datetime(2022, 4, 10, 16, 48, 49, 949349), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:25.492 | DEBUG    | __main__:check_old_data:120 - (1603, 'ADAUSDT', 1.036, 324464.0, datetime.datetime(2022, 4, 10, 16, 48, 50, 995045), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:25.675 | DEBUG    | __main__:check_old_data:120 - (1606, 'ADAUSDT', 1.027, 341418.0, datetime.datetime(2022, 4, 10, 16, 48, 51, 977017), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003894839337877265)
+2022-04-10 17:01:25.815 | DEBUG    | __main__:check_old_data:120 - (1607, 'ADAUSDT', 1.036, 323825.0, datetime.datetime(2022, 4, 10, 16, 48, 51, 986025), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:25.963 | DEBUG    | __main__:check_old_data:120 - (1608, 'DOTUSDT', 19.33, 16969.7, datetime.datetime(2022, 4, 10, 16, 48, 52, 61093), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:26.177 | DEBUG    | __main__:check_old_data:120 - (1613, 'ADAUSDT', 1.036, 319187.0, datetime.datetime(2022, 4, 10, 16, 48, 53, 220722), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004826254826254983)
+2022-04-10 17:01:26.660 | DEBUG    | __main__:check_old_data:120 - (1623, 'DOTUSDT', 19.33, 16558.3, datetime.datetime(2022, 4, 10, 16, 48, 56, 24759), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:26.942 | DEBUG    | __main__:check_old_data:120 - (1635, 'DOTUSDT', 19.33, 16560.3, datetime.datetime(2022, 4, 10, 16, 49, 0, 87189), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:27.176 | DEBUG    | __main__:check_old_data:120 - (1642, 'DOTUSDT', 19.33, 16971.3, datetime.datetime(2022, 4, 10, 16, 49, 3, 32845), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0041386445938955685)
+2022-04-10 17:01:27.343 | DEBUG    | __main__:check_old_data:120 - (1646, 'ADAUSDT', 1.027, 340717.0, datetime.datetime(2022, 4, 10, 16, 49, 4, 7367), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:27.751 | DEBUG    | __main__:check_old_data:120 - (1669, 'DOGEUSDT', 0.1534, 2518710.0, datetime.datetime(2022, 4, 10, 16, 49, 11, 477849), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003911342894393766)
+2022-04-10 17:01:27.925 | DEBUG    | __main__:check_old_data:120 - (1673, 'DOGEUSDT', 0.1534, 2548270.0, datetime.datetime(2022, 4, 10, 16, 49, 12, 599088), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032594524119948787)
+2022-04-10 17:01:28.241 | DEBUG    | __main__:check_old_data:120 - (1691, 'DOGEUSDT', 0.1534, 2675010.0, datetime.datetime(2022, 4, 10, 16, 49, 18, 472844), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003911342894393766)
+2022-04-10 17:01:28.421 | DEBUG    | __main__:check_old_data:120 - (1694, 'DOGEUSDT', 0.1534, 2983180.0, datetime.datetime(2022, 4, 10, 16, 49, 19, 522824), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:28.740 | DEBUG    | __main__:check_old_data:120 - (1706, 'AXSUSDT', 50.0, 7973.32, datetime.datetime(2022, 4, 10, 16, 49, 22, 389313), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0027999999999999137)
+2022-04-10 17:01:29.042 | DEBUG    | __main__:check_old_data:120 - (1711, 'DOGEUSDT', 0.1534, 2911980.0, datetime.datetime(2022, 4, 10, 16, 49, 23, 449360), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:29.339 | DEBUG    | __main__:check_old_data:120 - (1716, 'DOGEUSDT', 0.1534, 2964000.0, datetime.datetime(2022, 4, 10, 16, 49, 26, 362374), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:29.588 | DEBUG    | __main__:check_old_data:120 - (1718, 'DOGEUSDT', 0.1534, 2911980.0, datetime.datetime(2022, 4, 10, 16, 49, 27, 347865), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:29.910 | DEBUG    | __main__:check_old_data:120 - (1725, 'DOGEUSDT', 0.1534, 2983180.0, datetime.datetime(2022, 4, 10, 16, 49, 31, 608614), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:30.324 | DEBUG    | __main__:check_old_data:120 - (1726, 'DOGEUSDT', 0.1534, 2993030.0, datetime.datetime(2022, 4, 10, 16, 49, 32, 991936), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 17:01:30.707 | DEBUG    | __main__:check_old_data:120 - (1736, 'ADAUSDT', 1.027, 341000.0, datetime.datetime(2022, 4, 10, 16, 49, 37, 195603), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:30.916 | DEBUG    | __main__:check_old_data:120 - (1739, 'ADAUSDT', 1.027, 358200.0, datetime.datetime(2022, 4, 10, 16, 49, 38, 573738), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:31.078 | DEBUG    | __main__:check_old_data:120 - (1743, 'DOTUSDT', 19.33, 16969.2, datetime.datetime(2022, 4, 10, 16, 49, 39, 980192), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0036213140196585947)
+2022-04-10 17:01:31.219 | DEBUG    | __main__:check_old_data:120 - (1744, 'ADAUSDT', 1.027, 361360.0, datetime.datetime(2022, 4, 10, 16, 49, 41, 401059), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:31.401 | DEBUG    | __main__:check_old_data:120 - (1747, 'DOTUSDT', 19.33, 16984.7, datetime.datetime(2022, 4, 10, 16, 49, 42, 404288), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0036213140196585947)
+2022-04-10 17:01:31.555 | DEBUG    | __main__:check_old_data:120 - (1751, 'ADAUSDT', 1.027, 358884.0, datetime.datetime(2022, 4, 10, 16, 49, 43, 157975), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:31.726 | DEBUG    | __main__:check_old_data:120 - (1755, 'ADAUSDT', 1.027, 344448.0, datetime.datetime(2022, 4, 10, 16, 49, 45, 759106), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:31.900 | DEBUG    | __main__:check_old_data:120 - (1758, 'ADAUSDT', 1.027, 341049.0, datetime.datetime(2022, 4, 10, 16, 49, 47, 563456), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:32.263 | DEBUG    | __main__:check_old_data:120 - (1781, 'ADAUSDT', 1.027, 342268.0, datetime.datetime(2022, 4, 10, 16, 50, 9, 85337), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:32.580 | DEBUG    | __main__:check_old_data:120 - (1796, 'ADAUSDT', 1.027, 341049.0, datetime.datetime(2022, 4, 10, 16, 50, 14, 379961), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:32.838 | DEBUG    | __main__:check_old_data:120 - (1808, 'ADAUSDT', 1.027, 343533.0, datetime.datetime(2022, 4, 10, 16, 50, 22, 604733), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:33.100 | DEBUG    | __main__:check_old_data:120 - (1818, 'ADAUSDT', 1.027, 341049.0, datetime.datetime(2022, 4, 10, 16, 50, 27, 221553), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:33.535 | DEBUG    | __main__:check_old_data:120 - (1852, 'ADAUSDT', 1.027, 340766.0, datetime.datetime(2022, 4, 10, 16, 50, 46, 884299), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:33.731 | DEBUG    | __main__:check_old_data:120 - (1855, 'ADAUSDT', 1.027, 356750.0, datetime.datetime(2022, 4, 10, 16, 50, 50, 234435), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:34.018 | DEBUG    | __main__:check_old_data:120 - (1863, 'ADAUSDT', 1.027, 357953.0, datetime.datetime(2022, 4, 10, 16, 50, 53, 200086), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:34.212 | DEBUG    | __main__:check_old_data:120 - (1871, 'ADAUSDT', 1.027, 356679.0, datetime.datetime(2022, 4, 10, 16, 50, 55, 325199), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:34.433 | DEBUG    | __main__:check_old_data:120 - (1874, 'ADAUSDT', 1.027, 342252.0, datetime.datetime(2022, 4, 10, 16, 50, 56, 976760), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:34.608 | DEBUG    | __main__:check_old_data:120 - (1877, 'ADAUSDT', 1.027, 341049.0, datetime.datetime(2022, 4, 10, 16, 50, 57, 913318), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002921129503408171)
+2022-04-10 17:01:35.051 | DEBUG    | __main__:check_old_data:120 - (1059, 'ADAUSDT', 1.025, 352629.0, datetime.datetime(2022, 4, 10, 16, 42, 55, 85248), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:35.357 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:35.556 | DEBUG    | __main__:check_old_data:120 - (1079, 'DOGEUSDT', 0.155, 2008330.0, datetime.datetime(2022, 4, 10, 16, 43, 4, 147271), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004516129032258065)
+2022-04-10 17:01:36.031 | DEBUG    | __main__:check_old_data:120 - (1110, 'ADAUSDT', 1.025, 352913.0, datetime.datetime(2022, 4, 10, 16, 43, 35, 398667), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:36.222 | DEBUG    | __main__:check_old_data:120 - (1116, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 35, 977194), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:36.467 | DEBUG    | __main__:check_old_data:120 - (1126, 'AXSUSDT', 50.0, 8021.32, datetime.datetime(2022, 4, 10, 16, 43, 37, 125241), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:36.633 | DEBUG    | __main__:check_old_data:120 - (1128, 'AXSUSDT', 50.0, 8001.41, datetime.datetime(2022, 4, 10, 16, 43, 37, 959000), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:36.891 | DEBUG    | __main__:check_old_data:120 - (1140, 'ADAUSDT', 1.025, 352962.0, datetime.datetime(2022, 4, 10, 16, 43, 39, 379295), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:37.215 | DEBUG    | __main__:check_old_data:120 - (1155, 'ADAUSDT', 1.025, 359962.0, datetime.datetime(2022, 4, 10, 16, 43, 40, 797221), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:37.402 | DEBUG    | __main__:check_old_data:120 - (1157, 'DOGEUSDT', 0.1544, 2100540.0, datetime.datetime(2022, 4, 10, 16, 43, 41, 352136), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0012953367875647714)
+2022-04-10 17:01:37.570 | DEBUG    | __main__:check_old_data:120 - (1159, 'ADAUSDT', 1.025, 377035.0, datetime.datetime(2022, 4, 10, 16, 43, 41, 636084), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:37.782 | DEBUG    | __main__:check_old_data:120 - (1165, 'ADAUSDT', 1.025, 392341.0, datetime.datetime(2022, 4, 10, 16, 43, 42, 667296), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:38.010 | DEBUG    | __main__:check_old_data:120 - (1173, 'ADAUSDT', 1.025, 396144.0, datetime.datetime(2022, 4, 10, 16, 43, 43, 604298), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004878048780487809)
+2022-04-10 17:01:44.209 | DEBUG    | __main__:check_old_data:120 - (1177, 'AXSUSDT', 50.0, 8003.31, datetime.datetime(2022, 4, 10, 16, 43, 43, 927114), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:44.642 | DEBUG    | __main__:check_old_data:120 - (1203, 'AXSUSDT', 50.0, 8009.27, datetime.datetime(2022, 4, 10, 16, 43, 46, 221069), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:45.656 | DEBUG    | __main__:check_old_data:120 - (1287, 'AXSUSDT', 50.0, 8008.11, datetime.datetime(2022, 4, 10, 16, 44, 13, 693856), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:46.117 | DEBUG    | __main__:check_old_data:120 - (1317, 'AXSUSDT', 50.0, 8002.15, datetime.datetime(2022, 4, 10, 16, 44, 27, 237922), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:46.860 | DEBUG    | __main__:check_old_data:120 - (1378, 'AXSUSDT', 50.0, 8002.53, datetime.datetime(2022, 4, 10, 16, 47, 9, 912284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:48.077 | DEBUG    | __main__:check_old_data:120 - (1481, 'AXSUSDT', 50.0, 8001.71, datetime.datetime(2022, 4, 10, 16, 47, 40, 901330), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:48.307 | DEBUG    | __main__:check_old_data:120 - (1491, 'AXSUSDT', 50.0, 8001.51, datetime.datetime(2022, 4, 10, 16, 47, 44, 953496), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:50.620 | DEBUG    | __main__:check_old_data:120 - (1706, 'AXSUSDT', 50.0, 7973.32, datetime.datetime(2022, 4, 10, 16, 49, 22, 389313), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:53.059 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:53.579 | DEBUG    | __main__:check_old_data:120 - (1116, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 35, 977194), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:53.876 | DEBUG    | __main__:check_old_data:120 - (1126, 'AXSUSDT', 50.0, 8021.32, datetime.datetime(2022, 4, 10, 16, 43, 37, 125241), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:54.059 | DEBUG    | __main__:check_old_data:120 - (1128, 'AXSUSDT', 50.0, 8001.41, datetime.datetime(2022, 4, 10, 16, 43, 37, 959000), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:54.839 | DEBUG    | __main__:check_old_data:120 - (1177, 'AXSUSDT', 50.0, 8003.31, datetime.datetime(2022, 4, 10, 16, 43, 43, 927114), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:55.359 | DEBUG    | __main__:check_old_data:120 - (1203, 'AXSUSDT', 50.0, 8009.27, datetime.datetime(2022, 4, 10, 16, 43, 46, 221069), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0027999999999999137)
+2022-04-10 17:01:56.405 | DEBUG    | __main__:check_old_data:120 - (1287, 'AXSUSDT', 50.0, 8008.11, datetime.datetime(2022, 4, 10, 16, 44, 13, 693856), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 17:01:56.883 | DEBUG    | __main__:check_old_data:120 - (1317, 'AXSUSDT', 50.0, 8002.15, datetime.datetime(2022, 4, 10, 16, 44, 27, 237922), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0031999999999998696)
+2022-04-10 17:01:57.627 | DEBUG    | __main__:check_old_data:120 - (1378, 'AXSUSDT', 50.0, 8002.53, datetime.datetime(2022, 4, 10, 16, 47, 9, 912284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0031999999999998696)
+2022-04-10 17:01:58.922 | DEBUG    | __main__:check_old_data:120 - (1481, 'AXSUSDT', 50.0, 8001.71, datetime.datetime(2022, 4, 10, 16, 47, 40, 901330), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:01:59.160 | DEBUG    | __main__:check_old_data:120 - (1491, 'AXSUSDT', 50.0, 8001.51, datetime.datetime(2022, 4, 10, 16, 47, 44, 953496), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:02:01.518 | DEBUG    | __main__:check_old_data:120 - (1706, 'AXSUSDT', 50.0, 7973.32, datetime.datetime(2022, 4, 10, 16, 49, 22, 389313), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:02:57.155 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:03:01.666 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:03:15.832 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:08:14.394 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:09:49.515 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:09:59.061 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:10:02.861 | DEBUG    | __main__:check_old_data:120 - (1074, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 1, 568263), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:03.449 | DEBUG    | __main__:check_old_data:120 - (1116, 'AXSUSDT', 50.0, 8019.3, datetime.datetime(2022, 4, 10, 16, 43, 35, 977194), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:03.804 | DEBUG    | __main__:check_old_data:120 - (1126, 'AXSUSDT', 50.0, 8021.32, datetime.datetime(2022, 4, 10, 16, 43, 37, 125241), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:04.023 | DEBUG    | __main__:check_old_data:120 - (1128, 'AXSUSDT', 50.0, 8001.41, datetime.datetime(2022, 4, 10, 16, 43, 37, 959000), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:04.629 | DEBUG    | __main__:check_old_data:120 - (1177, 'AXSUSDT', 50.0, 8003.31, datetime.datetime(2022, 4, 10, 16, 43, 43, 927114), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:05.094 | DEBUG    | __main__:check_old_data:120 - (1203, 'AXSUSDT', 50.0, 8009.27, datetime.datetime(2022, 4, 10, 16, 43, 46, 221069), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:06.114 | DEBUG    | __main__:check_old_data:120 - (1287, 'AXSUSDT', 50.0, 8008.11, datetime.datetime(2022, 4, 10, 16, 44, 13, 693856), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:06.636 | DEBUG    | __main__:check_old_data:120 - (1317, 'AXSUSDT', 50.0, 8002.15, datetime.datetime(2022, 4, 10, 16, 44, 27, 237922), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:07.522 | DEBUG    | __main__:check_old_data:120 - (1378, 'AXSUSDT', 50.0, 8002.53, datetime.datetime(2022, 4, 10, 16, 47, 9, 912284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 17:10:08.924 | DEBUG    | __main__:check_old_data:120 - (1481, 'AXSUSDT', 50.0, 8001.71, datetime.datetime(2022, 4, 10, 16, 47, 40, 901330), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045999999999999375)
+2022-04-10 17:10:09.216 | DEBUG    | __main__:check_old_data:120 - (1491, 'AXSUSDT', 50.0, 8001.51, datetime.datetime(2022, 4, 10, 16, 47, 44, 953496), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045999999999999375)
+2022-04-10 17:10:10.611 | DEBUG    | __main__:check_old_data:120 - (1617, 'ADAUSDT', 1.039, 390376.0, datetime.datetime(2022, 4, 10, 16, 48, 54, 774850), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004812319538017196)
+2022-04-10 17:10:10.794 | DEBUG    | __main__:check_old_data:120 - (1621, 'ADAUSDT', 1.039, 388097.0, datetime.datetime(2022, 4, 10, 16, 48, 55, 944686), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004812319538017196)
+2022-04-10 17:10:10.980 | DEBUG    | __main__:check_old_data:120 - (1624, 'ADAUSDT', 1.039, 388192.0, datetime.datetime(2022, 4, 10, 16, 48, 56, 540229), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004812319538017196)
+2022-04-10 17:10:11.968 | DEBUG    | __main__:check_old_data:120 - (1706, 'AXSUSDT', 50.0, 7973.32, datetime.datetime(2022, 4, 10, 16, 49, 22, 389313), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045999999999999375)
+2022-04-10 17:14:23.756 | DEBUG    | __main__:check_old_data:120 - (1811, 'ADAUSDT', 1.039, 392708.0, datetime.datetime(2022, 4, 10, 16, 50, 25, 273279), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004812319538017196)
+2022-04-10 17:15:20.965 | DEBUG    | __main__:check_old_data:120 - (1833, 'ADAUSDT', 1.039, 392708.0, datetime.datetime(2022, 4, 10, 16, 50, 35, 54470), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004812319538017196)
+2022-04-10 17:17:59.397 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:18:05.586 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:19:27.911 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:20:42.098 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:47:26.184 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 17:47:38.738 | DEBUG    | __main__:check_old_data:121 - (2476, 'ADAUSDT', 1.039, 405834.0, datetime.datetime(2022, 4, 10, 17, 20, 50, 402320), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0038498556304138454)
+2022-04-10 17:47:38.788 | DEBUG    | __main__:check_old_data:121 - (2481, 'AVAXUSDT', 84.26, 4194.18, datetime.datetime(2022, 4, 10, 17, 20, 55, 118263), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.004035129361500189)
+2022-04-10 17:48:15.530 | DEBUG    | __main__:check_old_data:121 - (2482, 'AXSUSDT', 50.1, 27928.3, datetime.datetime(2022, 4, 10, 17, 20, 56, 291732), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004191616766467066)
+2022-04-10 17:48:26.877 | DEBUG    | __main__:check_old_data:121 - (2490, 'DOGEUSDT', 0.1559, 2478340.0, datetime.datetime(2022, 4, 10, 17, 20, 58, 690295), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004490057729313435)
+2022-04-10 17:50:14.407 | DEBUG    | __main__:check_old_data:121 - (2515, 'ATOMUSDT', 26.6, 15662.8, datetime.datetime(2022, 4, 10, 17, 48, 15, 190644), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003759398496240518)
+2022-04-10 17:50:17.710 | DEBUG    | __main__:check_old_data:121 - (2516, 'DOGEUSDT', 0.1562, 3161820.0, datetime.datetime(2022, 4, 10, 17, 48, 15, 210661), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.001920614596670811)
+2022-04-10 17:51:12.891 | DEBUG    | __main__:check_old_data:121 - (2519, 'ATOMUSDT', 26.6, 15763.8, datetime.datetime(2022, 4, 10, 17, 48, 15, 606015), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.003759398496240518)
+2022-04-10 17:53:01.211 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:01:45.728 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:04:43.110 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:05:16.101 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:05:57.869 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:06:44.898 | DEBUG    | __main__:start_handler:150 - User №471485149 send I'm working)
+2022-04-10 18:06:44.921 | DEBUG    | __main__:start_handler:153 - User №471485149 added to the database)
+2022-04-10 18:07:04.107 | DEBUG    | __main__:check_old_data:121 - (2853, 'ADAUSDT', 1.033, 313173.0, datetime.datetime(2022, 4, 10, 18, 6, 3, 743779), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0038722168441431837)
+2022-04-10 18:07:04.323 | DEBUG    | __main__:check_old_data:121 - (2859, 'ADAUSDT', 1.04, 303792.0, datetime.datetime(2022, 4, 10, 18, 6, 3, 793824), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0028846153846154854)
+2022-04-10 18:07:09.250 | DEBUG    | __main__:check_old_data:121 - (2867, 'AXSUSDT', 50.1, 27521.4, datetime.datetime(2022, 4, 10, 18, 6, 8, 937425), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029940119760478723)
+2022-04-10 18:07:09.385 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:09.669 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:09.938 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:10.224 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:10.505 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:10.777 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:11.050 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:11.348 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:11.612 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:11.786 | DEBUG    | __main__:check_old_data:121 - (2871, 'DOGEUSDT', 0.1545, 2544590.0, datetime.datetime(2022, 4, 10, 18, 6, 11, 295430), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0006472491909383926)
+2022-04-10 18:07:11.924 | DEBUG    | __main__:check_old_data:121 - (2872, 'DOGEUSDT', 0.1543, 2620590.0, datetime.datetime(2022, 4, 10, 18, 6, 11, 305439), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0019442644199609838)
+2022-04-10 18:07:12.207 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:12.533 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:12.853 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:13.233 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:13.601 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:13.953 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:14.345 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:14.777 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:07:15.130 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:09:30.120 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:09:47.003 | DEBUG    | __main__:check_old_data:121 - (2868, 'AXSUSDT', 50.0, 9356.46, datetime.datetime(2022, 4, 10, 18, 6, 8, 947434), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:09:55.331 | DEBUG    | __main__:check_old_data:121 - (2900, 'DOGEUSDT', 0.155, 2132860.0, datetime.datetime(2022, 4, 10, 18, 6, 35, 266522), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.001290322580645209)
+2022-04-10 18:10:46.117 | DEBUG    | __main__:check_old_data:121 - (2918, 'AXSUSDT', 50.0, 9376.0, datetime.datetime(2022, 4, 10, 18, 6, 41, 999868), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004999999999999893)
+2022-04-10 18:12:46.933 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:14:16.013 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:15:00.875 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:15:15.825 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:16:26.960 | DEBUG    | __main__:check_old_data:121 - (2968, 'ADAUSDT', 1.031, 327184.0, datetime.datetime(2022, 4, 10, 18, 15, 26, 527287), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004849660523763344)
+2022-04-10 18:16:30.373 | DEBUG    | __main__:check_old_data:121 - (2979, 'ATOMUSDT', 26.6, 15956.1, datetime.datetime(2022, 4, 10, 18, 15, 30, 132270), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0033834586466165995)
+2022-04-10 18:16:32.967 | DEBUG    | __main__:check_old_data:121 - (2981, 'AXSUSDT', 50.1, 27859.3, datetime.datetime(2022, 4, 10, 18, 15, 32, 457578), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0013972055888222812)
+2022-04-10 18:16:33.224 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:33.557 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:33.848 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:34.133 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:34.392 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:34.652 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:34.923 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:35.197 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:35.531 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:35.839 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:36.160 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:36.522 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:36.854 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:37.223 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:37.632 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:38.004 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:38.366 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:38.719 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:39.075 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:16:39.423 | DEBUG    | __main__:check_old_data:121 - (2982, 'AXSUSDT', 50.0, 8190.08, datetime.datetime(2022, 4, 10, 18, 15, 32, 467586), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0034000000000000696)
+2022-04-10 18:19:20.479 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:22:29.225 | DEBUG    | __main__:check_old_data:121 - (3097, 'ATOMUSDT', 26.6, 17249.0, datetime.datetime(2022, 4, 10, 18, 19, 39, 868139), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.001879699248120259)
+2022-04-10 18:22:32.677 | DEBUG    | __main__:check_old_data:121 - (3099, 'AXSUSDT', 50.1, 27942.2, datetime.datetime(2022, 4, 10, 18, 19, 41, 492564), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0009980039920158834)
+2022-04-10 18:23:01.662 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:23:07.437 | DEBUG    | __main__:check_old_data:121 - (3087, 'ADAUSDT', 1.031, 379366.0, datetime.datetime(2022, 4, 10, 18, 19, 36, 280758), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0038797284190106307)
+2022-04-10 18:23:26.418 | DEBUG    | __main__:check_old_data:121 - (3100, 'AXSUSDT', 50.0, 8261.14, datetime.datetime(2022, 4, 10, 18, 19, 41, 501571), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 18:23:26.449 | DEBUG    | __main__:check_old_data:121 - (3103, 'DOGEUSDT', 0.1531, 2438050.0, datetime.datetime(2022, 4, 10, 18, 19, 43, 941662), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004572175048987548)
+2022-04-10 18:23:26.807 | DEBUG    | __main__:check_old_data:121 - (3100, 'AXSUSDT', 50.0, 8261.14, datetime.datetime(2022, 4, 10, 18, 19, 41, 501571), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 18:23:26.847 | DEBUG    | __main__:check_old_data:121 - (3106, 'DOGEUSDT', 0.1545, 2116960.0, datetime.datetime(2022, 4, 10, 18, 19, 43, 967686), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0045307443365696365)
+2022-04-10 18:23:27.233 | DEBUG    | __main__:check_old_data:121 - (3100, 'AXSUSDT', 50.0, 8261.14, datetime.datetime(2022, 4, 10, 18, 19, 41, 501571), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0029999999999998916)
+2022-04-10 18:23:27.588 | DEBUG    | __main__:check_old_data:121 - (3100, 'AXSUSDT', 50.0, 8261.14, datetime.datetime(2022, 4, 10, 18, 19, 41, 501571), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0027999999999999137)
+2022-04-10 18:30:02.257 | ERROR    | db_requests_mysql:update_out_from_range:209 - MySQL Connection not available.
+2022-04-10 18:41:57.296 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:46:34.526 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 18:52:39.540 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:17:55.129 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:18:07.813 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.820 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.829 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.838 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.847 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.855 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.863 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.871 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:07.879 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:18:09.261 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:19:48.713 | ERROR    | db_requests_mysql:insert_depth:144 - 1264 (22003): Out of range value for column 'count' at row 1
+2022-04-10 19:43:44.065 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:44:50.764 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:44:54.712 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:55.097 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:55.431 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:55.705 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:55.987 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:56.262 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:56.543 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:56.831 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:57.133 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:57.405 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:44:57.692 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:46:55.012 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:47:56.810 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:48:00.045 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:48:00.365 | DEBUG    | __main__:check_old_data:121 - (3220, 'DOGEUSDT', 0.1524, 2544620.0, datetime.datetime(2022, 4, 10, 19, 44, 1, 191353), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002624671916010346)
+2022-04-10 19:49:33.179 | DEBUG    | __main__:check_old_data:121 - (3243, 'ADAUSDT', 1.04, 367434.8, datetime.datetime(2022, 4, 10, 19, 44, 34, 622463), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:51:11.721 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:51:19.227 | DEBUG    | __main__:check_old_data:121 - (3201, 'ADAUSDT', 1.04, 353969.7, datetime.datetime(2022, 4, 10, 19, 43, 52, 796428), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004807692307692291)
+2022-04-10 19:54:14.085 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 19:58:05.354 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2741789.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0019607843137254832)
+2022-04-10 19:58:05.931 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2821789.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:06.474 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2691961.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:06.985 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2692138.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0019607843137254832)
+2022-04-10 19:58:07.511 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2605754.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:08.006 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2163026.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:08.478 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2187653.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:08.962 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2153098.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:09.419 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 1972455.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:09.941 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 1997099.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:10.401 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2027722.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:10.914 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2045615.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:11.431 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2050116.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:11.942 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2083026.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032679738562091387)
+2022-04-10 19:58:15.371 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2114784.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:21.991 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2145546.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.002614379084967311)
+2022-04-10 19:58:22.460 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2145871.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0019607843137254832)
+2022-04-10 19:59:59.843 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:01:28.757 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:01:37.468 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2210099.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0039215686274509665)
+2022-04-10 20:01:37.899 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2210099.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0039215686274509665)
+2022-04-10 20:01:38.319 | DEBUG    | __main__:check_old_data:121 - (3304, 'DOGEUSDT', 0.153, 2210099.0, datetime.datetime(2022, 4, 10, 19, 54, 40, 765986), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0039215686274509665)
+2022-04-10 20:02:40.386 | ERROR    | db_requests_mysql:select_coin_current_price:132 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:02:40.388 | ERROR    | __main__:check_old_data:126 - local variable 'conn' referenced before assignment
+2022-04-10 20:02:40.422 | ERROR    | db_requests_mysql:update_currnet_price:186 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:03:50.920 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:05:48.289 | DEBUG    | __main__:check_old_data:121 - (3411, 'ADAUSDT', 1.054, 476941.1, datetime.datetime(2022, 4, 10, 20, 4, 48, 105057), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.003795066413662229)
+2022-04-10 20:05:48.580 | DEBUG    | __main__:check_old_data:121 - (3411, 'ADAUSDT', 1.054, 476941.1, datetime.datetime(2022, 4, 10, 20, 4, 48, 105057), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.003795066413662229)
+2022-04-10 20:05:48.884 | ERROR    | db_requests_mysql:select_coin_current_price:132 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:05:48.887 | ERROR    | __main__:check_old_data:126 - local variable 'conn' referenced before assignment
+2022-04-10 20:05:48.968 | ERROR    | db_requests_mysql:update_currnet_price:186 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:10:33.530 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:12:29.005 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:26:27.309 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:26:31.780 | DEBUG    | __main__:check_old_data:121 - (3421, 'AVAXUSDT', 85.1, 4229.4, datetime.datetime(2022, 4, 10, 20, 4, 5, 82270), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.00235017626321965)
+2022-04-10 20:26:32.394 | DEBUG    | __main__:check_old_data:121 - (3531, 'MATICUSDT', 1.472, 251706.4, datetime.datetime(2022, 4, 10, 20, 11, 45, 697316), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0013586956521738358)
+2022-04-10 20:27:09.549 | DEBUG    | __main__:start_handler:169 - User №471485149 send No records)
+2022-04-10 20:27:32.973 | DEBUG    | __main__:check_old_data:121 - (3533, 'FILUSDT', 21.68, 14888.37, datetime.datetime(2022, 4, 10, 20, 26, 31, 990629), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0013837638376383854)
+2022-04-10 20:27:32.984 | DEBUG    | __main__:check_old_data:121 - (3534, 'DOGEUSDT', 0.1543, 3745190.0, datetime.datetime(2022, 4, 10, 20, 26, 32, 110738), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0012961762799741372)
+2022-04-10 20:27:39.442 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:27:49.448 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:27:59.458 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:28:16.615 | ERROR    | db_requests_mysql:update_currnet_price:186 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:28:16.617 | ERROR    | db_requests_mysql:update_out_from_range:210 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:28:42.581 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:28:47.149 | DEBUG    | __main__:check_old_data:121 - (3566, 'DOGEUSDT', 0.1551, 2296534.0, datetime.datetime(2022, 4, 10, 20, 27, 24, 729628), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.003223726627981982)
+2022-04-10 20:28:51.325 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:29:05.255 | DEBUG    | __main__:check_old_data:121 - (3590, 'ADAUSDT', 1.059, 357689.7, datetime.datetime(2022, 4, 10, 20, 28, 3, 261523), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0047214353163360645)
+2022-04-10 20:29:32.082 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:29:45.451 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:29:51.016 | DEBUG    | __main__:check_old_data:121 - (3604, 'ADAUSDT', 1.052, 307464.4, datetime.datetime(2022, 4, 10, 20, 28, 48, 745318), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0019011406844107182)
+2022-04-10 20:29:54.866 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:31:14.427 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:31:19.361 | DEBUG    | __main__:check_old_data:121 - (3537, 'DOGEUSDT', 0.1535, 2498332.0, datetime.datetime(2022, 4, 10, 20, 26, 33, 806284), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032573289902280145)
+2022-04-10 20:31:19.659 | DEBUG    | __main__:check_old_data:121 - (3554, 'DOGEUSDT', 0.1534, 3407507.0, datetime.datetime(2022, 4, 10, 20, 27, 2, 662762), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0045632333767926525)
+2022-04-10 20:31:20.232 | DEBUG    | __main__:check_old_data:121 - (3625, 'FILUSDT', 21.68, 14434.88, datetime.datetime(2022, 4, 10, 20, 29, 27, 701577), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0023062730627306793)
+2022-04-10 20:31:23.570 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:32:06.026 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:32:53.544 | DEBUG    | __main__:check_old_data:121 - (3633, 'DOGEUSDT', 0.154, 7616302.0, datetime.datetime(2022, 4, 10, 20, 31, 18, 190037), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.0032467532467532756)
+2022-04-10 20:32:55.048 | DEBUG    | __main__:check_old_data:121 - (3638, 'ADAUSDT', 1.057, 302612.8, datetime.datetime(2022, 4, 10, 20, 31, 21, 873423), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0037842951750236553)
+2022-04-10 20:33:30.348 | ERROR    | __main__:polling:141 - 'int' object is not subscriptable
+2022-04-10 20:33:32.052 | DEBUG    | __main__:check_old_data:121 - (3645, 'ICPUSDT', 18.25, 22848.49, datetime.datetime(2022, 4, 10, 20, 32, 12, 755290), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0)
+2022-04-10 20:34:23.882 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:34:34.399 | DEBUG    | __main__:start_handler:166 - User №471485149 send all_verified_message
+2022-04-10 20:34:36.536 | DEBUG    | __main__:start_handler:166 - User №471485149 send all_verified_message
+2022-04-10 20:34:38.476 | DEBUG    | __main__:start_handler:166 - User №471485149 send all_verified_message
+2022-04-10 20:34:39.892 | DEBUG    | __main__:start_handler:166 - User №471485149 send all_verified_message
+2022-04-10 20:35:49.370 | ERROR    | db_requests_mysql:update_out_from_range:210 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:35:49.372 | ERROR    | __main__:check_old_data:126 - local variable 'conn' referenced before assignment
+2022-04-10 20:35:49.387 | ERROR    | db_requests_mysql:update_currnet_price:186 - 2003: Can't connect to MySQL server on 'localhost:3306' (10048 Обычно разрешается только одно использование адреса сокета (протокол/сетевой адрес/порт))
+2022-04-10 20:36:29.713 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:37:12.609 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:38:25.902 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:39:30.372 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:42:09.715 | DEBUG    | __main__:check_old_data:121 - (3713, 'AVAXUSDT', 85.79, 4196.2, datetime.datetime(2022, 4, 10, 20, 35, 30, 301351), datetime.datetime(2000, 1, 1, 0, 0), 0) 0.0048956754866534835)
+2022-04-10 20:42:19.648 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:42:48.925 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-10 20:43:38.628 | DEBUG    | __main__:check_old_data:121 - (3738, 'DOGEUSDT', 0.155, 7618205.0, datetime.datetime(2022, 4, 10, 20, 42, 34, 338390), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.001935483870967758)
+2022-04-10 20:45:52.804 | DEBUG    | __main__:check_old_data:121 - (3787, 'DOGEUSDT', 0.1543, 2678533.0, datetime.datetime(2022, 4, 10, 20, 44, 48, 736417), datetime.datetime(2000, 1, 1, 0, 0), 0) -0.004536616979909258)
+2022-04-10 20:46:14.919 | DEBUG    | __main__:start_handler:169 - User №471485149 send No records)
