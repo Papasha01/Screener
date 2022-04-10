@@ -19,11 +19,11 @@ logger.debug("Start script")
 # Импорт cfg
 config = configparser.ConfigParser()                          # создаём объекта парсера
 config.read("cfg.ini")                                        # читаем конфиг
-delta = timedelta(minutes = float(config["Settings"]["delta"].strip ('"')))
-time_resend = timedelta(minutes = float(config["Settings"]["time_resend"].strip ('"')))
-limit = float(config["Settings"]["limit"].strip ('"'))
-cf_update = float(config["Settings"]["cf_update"].strip ('"'))
-cf_distance = float(config["Settings"]["cf_distance"].strip ('"'))
+delta = timedelta(minutes = float(config["Settings"]["delta"]))
+time_resend = timedelta(minutes = float(config["Settings"]["time_resend"]))
+limit = float(config["Settings"]["limit"])
+cf_update = float(config["Settings"]["cf_update"])
+cf_distance = float(config["Settings"]["cf_distance"])
 
 # Звук оповещения
 mixer.init() 

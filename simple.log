@@ -1,0 +1,30 @@
+2022-04-09 21:32:07.121 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-09 21:34:00.058 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:36:43.038 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:37:24.655 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:37:34.913 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:39:08.884 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:41:53.344 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:41:58.621 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:42:04.218 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:42:35.110 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:44:44.575 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:45:05.640 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:46:17.536 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:46:54.931 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:47:33.280 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:47:44.793 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:48:36.209 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:50:20.726 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:52:21.650 | ERROR    | db_requests:update_out_from_range:272 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:52:31.244 | ERROR    | db_requests:update_out_from_range:272 - Ошибка при работе с SQLite database is locked
+2022-04-09 21:57:19.234 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-09 21:57:45.137 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-09 21:58:40.966 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-09 22:01:43.419 | DEBUG    | __main__:<module>:17 - Start script
+2022-04-09 22:02:51.934 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 22:03:02.549 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 22:03:10.578 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 22:03:18.896 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 22:03:24.181 | ERROR    | db_requests:select_get_an_accepted_records:82 - Ошибка при работе с SQLite database is locked
+2022-04-09 22:53:54.659 | DEBUG    | __main__:<module>:17 - Start script
